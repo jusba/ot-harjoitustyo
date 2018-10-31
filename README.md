@@ -8,4 +8,4 @@
 [gitlog](https://github.com/jusba/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt) \
 [komentorivi](https://github.com/jusba/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-**Hauska muokkaus**
+**Hauska muokkaus 2x**
