@@ -22,7 +22,9 @@ public class Maksukortti {
             this.arvo -= EDULLINEN;
         }
     }
- 
+    // Ei läpäise testejä, kortin arvon ollessa neljä
+    // ei suostu ostamaan maukkaasti, sillä metodissa on
+    // > kun pitäisi olla >=
     public void syoMaukkaasti() {
         if (this.arvo > MAUKAS) {
             this.arvo -= MAUKAS;
