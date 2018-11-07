@@ -11,6 +11,7 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 
 ##### Laivanasetusvalikko
 - Uuden pelin avatessa avautuu laivanasetusvalikko ja pelaaja saa asettaaa laivansa pelilaudalle sallittujen sääntöjen puitteissa.
+- Pelin säännöt tarkentuvat projektin edetessä, oletuksena ns. normaalin lautapeliversion säännöt
 - Kaikki laivat asetettua ohjelma siirtyy peliruutuun.
 
 ##### Pelivalikko
@@ -33,3 +34,11 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 - Muutettava peliruudukon koko
 - Muutettava laivojen määrä
 - Muita sovelluksen kehityksen aikana tarkentuvia ominaisuuksia
+
+### Toiminnallisuuteen liittyviä rajoitteita
+- Toimivuus ainakin Windows ja Linux koneissa (Projekti toteutetaan Windows pohjaisella käyttäjärjestelmällä, sekä mahdollisesti tilanteen sitä vaatiessa Virtualboxissa pyörivällä Ubuntulla.
+- Ohjelmointikieli Java
+- Ei verkkotoiminnallisuuksia
+- Mahdollinen tlastojen tallennus suoritetaan paikallisesti
+
+##### Ohjelman tekijä varaa oikeuden muokata tätä dokumenttia projektin yksityiskohtien tarkentuessa.
