@@ -1,7 +1,13 @@
 # Ohjelmistotekniikka harjoitustyö
 
+## Laivanupotuspeli
 
-*Tehtäviä* \ 
+- [Ajankäyttö](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/ajankaytto.md)
+- [Vaatimusmäärittely](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/Vaatimusm%C3%A4%C3%A4rittely.md)
+
+
+
+*Tehtäviä*  
 **Viikko1**
 
 
