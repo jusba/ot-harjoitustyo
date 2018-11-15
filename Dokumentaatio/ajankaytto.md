@@ -6,4 +6,4 @@
 |6.11.18|2h |mavenin viritystä|
 |7.11.18|1.5h| Määrittelydokumentin luonti ja etärepon järjestely|
 |13.11.18|3h|Laivanupotuspelin aloitusta|
-|15.11.18|4h|laivan asetuksen tekoa|
+|15.11.18|5h|laivan asetuksen tekoa, karun grafiikan lisäystä ja itse pääpelin aloittelua|
