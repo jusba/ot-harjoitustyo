@@ -37,6 +37,9 @@ public class Grid {
     public Location[][] getGrid(){
         return this.grid;
     }
+    public Location getLocation(int x, int y){
+        return this.grid[x][y];
+    }
          
     
     

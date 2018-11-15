@@ -37,6 +37,9 @@ public class Location {
         return false;
         
     }
+    public Ship getShip(){
+        return this.ship;
+    }
     public boolean hasShip(){
         return this.status;
     }

@@ -10,5 +10,16 @@ package com.gisyritys.laivanupotus;
  * @author Jussi
  */
 public class Ship {
+    private String tyyppi;
     
+    public Ship(){
+        this.tyyppi = "Laiva";
+    }
+    public String getTyyppi(){
+        return this.tyyppi;
+    }
+    @Override
+    public String toString(){
+        return this.tyyppi;
+    }
 }
