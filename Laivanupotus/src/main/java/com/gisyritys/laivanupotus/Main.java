@@ -7,8 +7,12 @@ package com.gisyritys.laivanupotus;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  *
@@ -20,13 +24,31 @@ public class Main extends Application {
         Button start = new Button("Aloita peli");
         Scene menu = new Scene(start);
         Board board =  new Board();
-        Grid grid = board.setupBoard();
+        Grid grid = board.getBoard();
+        
         start.setOnAction((event) -> {
-            w.setScene(board.boardScene());
+            BorderPane b = board.boardScene();
+            Label cont = new Label("Valmis");
+            cont.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event){
+                        Game game = new Game(board.getBoard());
+                        BorderPane p = game.getGame();
+                        Scene gameScene = new Scene(p);
+                        w.setScene(gameScene);
+                        
+                    }    
+                    
+                });
+            b.setRight(cont);
+            //Onko kirjotustyyli oikee?
+            Scene boardScene = new Scene(b);
+            w.setScene(boardScene);
+            //Onko kirjotustyyli oikee?
             
             
         });
-        grid = board.setupBoard();
+        
         
         w.setScene(menu);
         w.setTitle("Laivanupotus");

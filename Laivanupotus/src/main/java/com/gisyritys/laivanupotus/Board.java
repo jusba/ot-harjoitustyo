@@ -40,11 +40,11 @@ public class Board {
         this.lbl = new Label("                                      Tyyppi: ");
         
     }
-    public Grid setupBoard(){
+    public Grid getBoard(){
         
         return this.grid;
     }
-    public Scene boardScene(){
+    public BorderPane boardScene(){
         BorderPane screen = new BorderPane();
         //Ship type indicator
         screen.setTop(lbl);
@@ -53,8 +53,7 @@ public class Board {
         cont.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override
                     public void handle(MouseEvent event){
-                        System.out.println("toimi pls");
-                        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                        return;
                     }    
                     
                 });
@@ -144,8 +143,8 @@ public class Board {
         
         
         screen.setCenter(pane);
-        Scene b = new Scene(screen);
-        return b;
+        
+        return screen;
     
     }
 }
