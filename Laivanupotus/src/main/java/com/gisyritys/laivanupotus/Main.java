@@ -25,6 +25,7 @@ public class Main extends Application {
             w.setScene(board.boardScene());
            
         });
+        
         w.setScene(menu);
         w.setTitle("Laivanupotus");
         w.show();
