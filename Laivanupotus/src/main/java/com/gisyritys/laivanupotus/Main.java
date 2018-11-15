@@ -23,8 +23,10 @@ public class Main extends Application {
         Grid grid = board.setupBoard();
         start.setOnAction((event) -> {
             w.setScene(board.boardScene());
-           
+            
+            
         });
+        grid = board.setupBoard();
         
         w.setScene(menu);
         w.setTitle("Laivanupotus");

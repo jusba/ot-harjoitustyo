@@ -10,6 +10,7 @@ package com.gisyritys.laivanupotus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
@@ -22,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  *
@@ -35,7 +37,7 @@ public class Board {
     
     public Board(){
         this.grid = new Grid();
-        this.lbl = new Label("          Tyyppi: ");
+        this.lbl = new Label("                                      Tyyppi: ");
         
     }
     public Grid setupBoard(){
@@ -46,6 +48,17 @@ public class Board {
         BorderPane screen = new BorderPane();
         //Ship type indicator
         screen.setTop(lbl);
+        //Continue to next scene
+        Label cont = new Label("Valmis");
+        cont.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event){
+                        System.out.println("toimi pls");
+                        Stage stageTheEventSourceNodeBelongs = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    }    
+                    
+                });
+        screen.setRight(cont);
         //Ship type selection
         VBox vbox = new VBox();
         
@@ -102,7 +115,7 @@ public class Board {
                         MouseButton mouse = event.getButton();
                         if(mouse == MouseButton.SECONDARY){
                             Ship ship = grid.getLocation(xloc, yloc).getShip();
-                            lbl.setText("          Tyyppi: " + ship.getTyyppi());
+                            lbl.setText("                                      Tyyppi: " + ship.getTyyppi());
                             System.out.println(ship);
                         }
                         else{
@@ -127,6 +140,8 @@ public class Board {
                 
             }
         }
+        
+        
         
         screen.setCenter(pane);
         Scene b = new Scene(screen);
