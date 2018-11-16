@@ -32,12 +32,11 @@ import javafx.stage.Stage;
 public class Board {
     private Grid grid;
     private int column;
-    private int row;
-    private Label lbl;
+    
     
     public Board(){
-        this.grid = new Grid();
-        this.lbl = new Label("                                      Tyyppi: ");
+        this.grid = new Grid(10,10);
+        
         
     }
     public Grid getBoard(){
@@ -46,9 +45,11 @@ public class Board {
     }
     public BorderPane boardScene(){
         BorderPane screen = new BorderPane();
+        Label lbl = new Label("                                      Tyyppi: ");
         //Ship type indicator
         screen.setTop(lbl);
         //Continue to next scene
+        
         Label cont = new Label("Valmis");
         cont.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override

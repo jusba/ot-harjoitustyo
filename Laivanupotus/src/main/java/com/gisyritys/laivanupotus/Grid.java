@@ -11,10 +11,14 @@ package com.gisyritys.laivanupotus;
  */
 public class Grid {
     private Location grid[][];
+    private int xsize;
+    private int ysize;
     
     
-    public Grid(){
-        this.grid = new Location[10][10];
+    public Grid(int x, int y){
+        this.xsize = y;
+        this.ysize = 10;
+        this.grid = new Location[this.xsize][this.ysize];
         for(int i=0; i<grid.length; i++) {
             for(int j=0; j<grid[i].length; j++) {
                 grid[i][j] = new Location();  
@@ -33,6 +37,12 @@ public class Grid {
             grid[x][y].removeShip();
             
         }
+    }
+    public int getXSize(){
+        return this.xsize;
+    }
+    public int getYSize(){
+        return this.ysize;
     }
     public Location[][] getGrid(){
         return this.grid;
