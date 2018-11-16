@@ -16,8 +16,8 @@ public class Grid {
     
     
     public Grid(int x, int y){
-        this.xsize = y;
-        this.ysize = 10;
+        this.xsize = x;
+        this.ysize = y;
         this.grid = new Location[this.xsize][this.ysize];
         for(int i=0; i<grid.length; i++) {
             for(int j=0; j<grid[i].length; j++) {
