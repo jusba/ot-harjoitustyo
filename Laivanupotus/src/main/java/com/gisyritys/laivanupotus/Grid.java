@@ -5,6 +5,8 @@
  */
 package com.gisyritys.laivanupotus;
 
+import java.util.Random;
+
 /**
  *
  * @author Jussi
@@ -39,14 +41,135 @@ public class Grid {
         }
     }
     public Location[][] randomGrid(){
-        for(int i=0; i<grid.length; i++) {
-            for(int j=0; j<grid[i].length; j++) {
-                grid[i][j] = new Location(); 
+        int pieces = 3;
+        
+        Random random = new Random();
+        int startX = random.nextInt(this.xsize - 1);
+        int startY = random.nextInt(this.ysize - 1);
+        int dir = random.nextInt(3);
+        Boolean test = false;
+        while(true){
+            for(int i = 0; i<pieces; i++){
                 
+                if(dir == 0){
+                    //north
+                    if(startY - pieces < 0){
+                        dir = random.nextInt(3);
+                        startX = random.nextInt(this.xsize - 1);
+                        startY = random.nextInt(this.ysize - 1);
+                        i --;
+                        continue;
+                    }
+                    for(int x = 0; x<pieces; x++){
+                        if(this.grid[startX][startY].hasShip()){
+                            dir = random.nextInt(3);
+                            startX = random.nextInt(this.xsize - 1);
+                            startY = random.nextInt(this.ysize - 1);
+                            test = true;
+                        }
+                    }
+                    if(test){
+                        i --;
+                        test =  false;
+                        continue;
+                    }
+                    // Adding ships
+                    this.grid[startX][startY].addShip();
+                    startY --;
+                    
+                    
+                }
+                if(dir == 1){
+                    //east
+                    if(startX + pieces > this.xsize-1){
+                        startX = random.nextInt(this.xsize - 1);
+                        startY = random.nextInt(this.ysize - 1);
+                        dir = random.nextInt(3);
+                        i --;
+                        continue;
+                    }
+                    for(int x = 0; x<pieces; x++){
+                        if(this.grid[startX][startY].hasShip()){
+                            dir = random.nextInt(3);
+                            startX = random.nextInt(this.xsize - 1);
+                            startY = random.nextInt(this.ysize - 1);
+                            test = true;
+                        }
+                    }
+                    if(test){
+                        i --;
+                        test =  false;
+                        continue;
+                    }
+                    // Adding ships
+                    this.grid[startX][startY].addShip();
+                    startX ++;
+                    
+                    
+                }
+                if(dir == 2){
+                    //south
+                    if(startY + pieces > this.ysize-1){
+                        dir = random.nextInt(3);
+                        startX = random.nextInt(this.xsize - 1);
+                        startY = random.nextInt(this.ysize - 1);
+                        i --;
+                        continue;
+                    }
+                    for(int x = 0; x<pieces; x++){
+                        if(this.grid[startX][startY].hasShip()){
+                            dir = random.nextInt(3);
+                            startX = random.nextInt(this.xsize - 1);
+                            startY = random.nextInt(this.ysize - 1);
+                            test = true;
+                        }
+                    }
+                    if(test){
+                        i --;
+                        test =  false;
+                        continue;
+                    }
+                    // Adding ships
+                    this.grid[startX][startY].addShip();
+                    startY ++;
+                }
+                if(dir == 3){
+                    //west
+                    if(startX - pieces < 0){
+                        dir = random.nextInt(3);
+                        startX = random.nextInt(this.xsize - 1);
+                        startY = random.nextInt(this.ysize - 1);
+                        i --;
+                        continue;
+                    }
+                    for(int x = 0; x<pieces; x++){
+                        if(this.grid[startX][startY].hasShip()){
+                            dir = random.nextInt(3);
+                            startX = random.nextInt(this.xsize - 1);
+                            startY = random.nextInt(this.ysize - 1);
+                            test = true;
+                        }
+                    }
+                    if(test){
+                        i --;
+                        test =  false;
+                        continue;
+                    }
+                    // Adding ships
+                    this.grid[startX][startY].addShip();
+                    startX --;
+                }
+
             }
         
+        
+        
+    
+            
         }
+            
     }
+        
     public int getXSize(){
         return this.xsize;
     }
