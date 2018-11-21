@@ -69,12 +69,35 @@ public class Game {
                     
                 });
                 pane.add(button, x, y);
-
+                
+                
                 
                 
             }
         }
+        GridPane botPane = new GridPane();
+        Grid bot = new Grid(this.grid.getXSize(),this.grid.getYSize());
+        bot.randomGrid();
+        for (int x = 0; x <= bot.getGrid().length-1; x++) {
+            for (int y = 0; y <= bot.getGrid()[x].length-1; y++) {
+                Label button = new Label("~~"); 
+                if(bot.getGrid()[x][y].hasShip()){
+                    button = new Label("[][]");
+                }
+                
+                
+                
+                botPane.add(button, x, y);
+                
+                
+                
+                
+            }
+        }
+        Label keski = new Label("Wip");
         screen.setLeft(pane);
+        screen.setCenter(keski);
+        screen.setRight(botPane);
         
         return screen;
        

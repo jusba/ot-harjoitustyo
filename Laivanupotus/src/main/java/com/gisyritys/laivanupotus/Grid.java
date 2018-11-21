@@ -40,7 +40,7 @@ public class Grid {
             
         }
     }
-    public Location[][] randomGrid(){
+    public void randomGrid(){
         int pieces = 3;
         
         Random random = new Random();
@@ -165,7 +165,7 @@ public class Grid {
         
         
     
-            
+            return;
         }
             
     }
