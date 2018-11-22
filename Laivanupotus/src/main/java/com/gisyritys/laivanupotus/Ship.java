@@ -11,13 +11,22 @@ package com.gisyritys.laivanupotus;
  */
 public class Ship {
     private String tyyppi;
+    private Boolean status; //sink or not sink
     
     public Ship(){
         this.tyyppi = "Laiva";
+        this.status = true;
     }
     public String getTyyppi(){
         return this.tyyppi;
     }
+    public void sinkShip(){
+        this.status = false;
+    }
+    public boolean getStatus(){
+        return this.status;
+    }
+    
     @Override
     public String toString(){
         return this.tyyppi;

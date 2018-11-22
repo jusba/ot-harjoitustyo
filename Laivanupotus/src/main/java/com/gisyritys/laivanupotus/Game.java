@@ -94,7 +94,13 @@ public class Game {
                           //  type.setText("                                      Tyyppi: " + ship.getTyyppi());
                           //  System.out.println(ship);
                         }
+                        
                         else{
+                            if(bot.getGrid()[xloc][yloc].hasShip()){
+                                button.setText("**");
+                                bot.getLocation(xloc, yloc).getShip().sinkShip();
+                                
+                            }
                           
                             
                         }
