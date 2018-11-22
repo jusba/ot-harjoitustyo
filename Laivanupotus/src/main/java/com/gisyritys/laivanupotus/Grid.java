@@ -75,7 +75,45 @@ public class Grid {
                                 startX = random.nextInt(this.xsize - 1);
                                 startY = random.nextInt(this.ysize - 1);
                                 test = true;
-                            }    
+                            }
+                            if(testiX -1 >= 0 ){
+                                if(this.grid[testiX -1][testiY].hasShip()){
+                                    System.out.println("DirN: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiX +1 <= this.xsize -1) {
+                                if(this.grid[testiX +1][testiY].hasShip()){
+                                    System.out.println("DirN: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY -1 >= 0){
+                                if(this.grid[testiX][testiY -1].hasShip()){
+                                    System.out.println("DirN: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY +1 <= this.ysize -1){
+                                if(this.grid[testiX][testiY +1].hasShip()){
+                                    System.out.println("DirN: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            
+                            
                         }  
                         testiY--;
                     }
@@ -113,7 +151,43 @@ public class Grid {
                                 startX = random.nextInt(this.xsize - 1);
                                 startY = random.nextInt(this.ysize - 1);
                                 test = true;
-                            }    
+                            }
+                            if(testiX -1 >= 0 ){
+                                if(this.grid[testiX -1][testiY].hasShip()){
+                                    System.out.println("DirE: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiX +1 <= this.xsize -1) {
+                                if(this.grid[testiX +1][testiY].hasShip()){
+                                    System.out.println("DirE: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY -1 >= 0){
+                                if(this.grid[testiX][testiY -1].hasShip()){
+                                    System.out.println("DirE: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY +1 <= this.ysize -1){
+                                if(this.grid[testiX][testiY +1].hasShip()){
+                                    System.out.println("DirE: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
                         }        
                         
                         testiX ++;
@@ -153,7 +227,43 @@ public class Grid {
                                 startX = random.nextInt(this.xsize - 1);
                                 startY = random.nextInt(this.ysize - 1);
                                 test = true;
-                            }    
+                            }
+                            if(testiX -1 >= 0 ){
+                                if(this.grid[testiX -1][testiY].hasShip()){
+                                    System.out.println("DirS: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiX +1 <= this.xsize -1) {
+                                if(this.grid[testiX +1][testiY].hasShip()){
+                                    System.out.println("DirS: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY -1 >= 0){
+                                if(this.grid[testiX ][testiY-1].hasShip()){
+                                    System.out.println("DirS: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY +1 <= this.ysize -1){
+                                if(this.grid[testiX][testiY+1].hasShip()){
+                                    System.out.println("DirS: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
                         }  
                         
                         testiY ++;
@@ -191,7 +301,43 @@ public class Grid {
                                 startX = random.nextInt(this.xsize - 1);
                                 startY = random.nextInt(this.ysize - 1);
                                 test = true;
-                            }    
+                            }
+                            if(testiX -1 >= 0 ){
+                                if(this.grid[testiX -1][testiY].hasShip()){
+                                    System.out.println("DirW: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiX +1 <= this.xsize -1) {
+                                if(this.grid[testiX +1][testiY].hasShip()){
+                                    System.out.println("DirW: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY -1 >= 0){
+                                if(this.grid[testiX ][testiY-1].hasShip()){
+                                    System.out.println("DirW: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
+                            if(testiY +1 <= this.ysize -1){
+                                if(this.grid[testiX ][testiY+1].hasShip()){
+                                    System.out.println("DirW: "+ dir);
+                                    dir = random.nextInt(3);
+                                    startX = random.nextInt(this.xsize - 1);
+                                    startY = random.nextInt(this.ysize - 1);
+                                    test = true;
+                                }
+                            }
                         }  
                         testiX --;
                     }
@@ -226,7 +372,12 @@ public class Grid {
         }
             
     }
-        
+    public boolean checkSides(int x, int y){
+        if(this.grid[x -1][y].hasShip()||this.grid[x +1][y].hasShip()||this.grid[x][y-1].hasShip()||this.grid[x][y+1].hasShip()){ 
+            return true;
+        }   
+        return false;
+    }    
     public int getXSize(){
         return this.xsize;
     }
