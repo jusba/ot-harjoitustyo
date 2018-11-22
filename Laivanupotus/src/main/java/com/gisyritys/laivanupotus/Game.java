@@ -100,7 +100,10 @@ public class Game {
                                 button.setText("**");
                                 bot.getLocation(xloc, yloc).getShip().sinkShip();
                                 
+                                
                             }
+                            
+                            
                           
                             
                         }
