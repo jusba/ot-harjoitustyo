@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gisyritys.laivanupotus;
+package com.gisyritys.logic;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public class Grid {
     private int ysize;
     
     
-    public Grid(int x, int y){
+    public Grid(int x, int y) {
         this.xsize = x;
         this.ysize = y;
         this.grid = new Location[this.xsize][this.ysize];
@@ -342,6 +342,7 @@ public class Grid {
                         testiX --;
                     }
                     if(test){
+                        
                         i --;
                         test =  false;
                         continue;
@@ -372,12 +373,14 @@ public class Grid {
         }
             
     }
+    // Not used atm.
     public boolean checkSides(int x, int y){
         if(this.grid[x -1][y].hasShip()||this.grid[x +1][y].hasShip()||this.grid[x][y-1].hasShip()||this.grid[x][y+1].hasShip()){ 
             return true;
         }   
         return false;
-    }    
+    }
+    //Not used atm.
     public int getXSize(){
         return this.xsize;
     }

@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gisyritys.laivanupotus;
+package com.gisyritys.graphics;
+import com.gisyritys.logic.Grid;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.application.Application;

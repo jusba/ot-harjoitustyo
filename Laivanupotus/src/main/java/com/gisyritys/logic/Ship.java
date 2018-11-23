@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gisyritys.laivanupotus;
+package com.gisyritys.logic;
 
 /**
  *
  * @author Jussi
  */
 public class Ship {
-    private String tyyppi;
+    private String tyyppi; // Not impelemnted yet
     private Boolean status; //sink or not sink
     
     public Ship(){

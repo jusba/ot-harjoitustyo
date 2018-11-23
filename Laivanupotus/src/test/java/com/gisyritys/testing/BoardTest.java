@@ -1,12 +1,14 @@
+package com.gisyritys.testing;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import com.gisyritys.laivanupotus.Board;
-import com.gisyritys.laivanupotus.Grid;
-import com.gisyritys.laivanupotus.Location;
+import com.gisyritys.graphics.Board;
+import com.gisyritys.logic.Grid;
+import com.gisyritys.logic.Location;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

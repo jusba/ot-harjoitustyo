@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gisyritys.laivanupotus;
+package com.gisyritys.graphics;
 
 
 
+import com.gisyritys.logic.Grid;
+import com.gisyritys.logic.Ship;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
