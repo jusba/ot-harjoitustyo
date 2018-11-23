@@ -18,32 +18,26 @@ import static org.junit.Assert.*;
  * @author Jussi
  */
 public class ShipTest {
-    
+
     Ship ship;
-      
+
     @Before
     public void setUp() {
         ship = new Ship();
     }
+
     @Test
-    public void shipSinks(){
-        assertEquals(ship.getStatus(),true);
+    public void shipSinks() {
+        assertEquals(ship.getStatus(), true);
         ship.sinkShip();
         assertEquals(ship.getStatus(), false);
     }
+
     @Test
-    public void typeWorks(){
-        assertEquals(ship.getTyyppi(),"Laiva");
-        assertEquals(ship.toString(),"Laiva");
+    public void typeWorks() {
+        assertEquals(ship.getTyyppi(), "Laiva");
+        assertEquals(ship.toString(), "Laiva");
     }
-    
-    
-    
-    
-    
-    
-    
-    
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

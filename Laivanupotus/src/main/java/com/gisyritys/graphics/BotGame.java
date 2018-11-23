@@ -10,5 +10,5 @@ package com.gisyritys.graphics;
  * @author Jussi
  */
 public class BotGame {
-    
+
 }

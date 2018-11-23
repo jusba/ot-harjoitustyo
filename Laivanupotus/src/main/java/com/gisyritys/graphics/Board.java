@@ -5,8 +5,6 @@
  */
 package com.gisyritys.graphics;
 
-
-
 import com.gisyritys.logic.Grid;
 import com.gisyritys.logic.Ship;
 import javafx.beans.value.ChangeListener;
@@ -32,40 +30,41 @@ import javafx.stage.Stage;
  * @author Jussi
  */
 public class Board {
+
     private Grid grid;
     private int column;
-    
-    
-    public Board(){
-        this.grid = new Grid(10,10);
-        
-        
+
+    public Board() {
+        this.grid = new Grid(10, 10);
+
     }
-    public Grid getBoard(){
-        
+
+    public Grid getBoard() {
+
         return this.grid;
     }
-    public BorderPane boardScene(){
+
+    public BorderPane boardScene() {
         BorderPane screen = new BorderPane();
         Label lbl = new Label("                                      Tyyppi: ");
         //Ship type indicator
         screen.setTop(lbl);
         //Continue to next scene
-        
+
         Label cont = new Label("Valmis");
-        cont.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                    @Override
-                    public void handle(MouseEvent event){
-                        return;
-                    }    
-                    
-                });
+        cont.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                return;
+            }
+
+        });
         screen.setRight(cont);
         //Ship type selection
         VBox vbox = new VBox();
-        
+
         ToggleGroup ships = new ToggleGroup();
-        RadioButton lt =  new RadioButton("Lentotukialus");
+        RadioButton lt = new RadioButton("Lentotukialus");
         lt.setUserData(1);
         lt.setToggleGroup(ships);
         RadioButton tl = new RadioButton("Taistelulaiva");
@@ -80,74 +79,65 @@ public class Board {
         RadioButton su = new RadioButton("Sukellusvene");
         su.setUserData(5);
         su.setToggleGroup(ships);
-        
-        ships.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+
+        ships.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                
+
             }
-            
+
         });
         vbox.getChildren().add(lt);
         vbox.getChildren().add(tl);
         vbox.getChildren().add(ri);
         vbox.getChildren().add(ha);
         vbox.getChildren().add(su);
-        
+
         screen.setLeft(vbox);
-        
+
         //Ship Grid
         GridPane pane = new GridPane();
-        
-        for (int x = 0; x <= this.grid.getGrid().length-1; x++) {
-            for (int y = 0; y <= this.grid.getGrid()[x].length-1; y++) {
+
+        for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
+            for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
                 String status = "Sea";
-                if(this.grid.getGrid()[x][y].hasShip()){
-                     status = "Ship";
+                if (this.grid.getGrid()[x][y].hasShip()) {
+                    status = "Ship";
                 }
-                
+
                 Label button = new Label("~~");
                 //Mouse clicks
-                button.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
-                    public void handle(MouseEvent event){
-                        
+                    public void handle(MouseEvent event) {
+
                         int xloc = pane.getColumnIndex(button);
                         int yloc = pane.getRowIndex(button);
                         MouseButton mouse = event.getButton();
-                        if(mouse == MouseButton.SECONDARY){
+                        if (mouse == MouseButton.SECONDARY) {
                             Ship ship = grid.getLocation(xloc, yloc).getShip();
                             lbl.setText("                                      Tyyppi: " + ship.getTyyppi());
                             System.out.println(ship);
-                        }
-                        else{
+                        } else {
                             button.setText("[][]");
                             //Poista
                             System.out.println(xloc + "," + yloc);
                             //Poista
                             grid.addShip(xloc, yloc);
-                            
+
                         }
-                        
-                        
-                        
-                        
-                        
+
                     }
-                    
+
                 });
                 pane.add(button, x, y);
 
-                
-                
             }
         }
-        
-        
-        
+
         screen.setCenter(pane);
-        
+
         return screen;
-    
+
     }
 }

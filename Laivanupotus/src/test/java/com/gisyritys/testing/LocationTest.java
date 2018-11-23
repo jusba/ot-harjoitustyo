@@ -18,32 +18,33 @@ import static org.junit.Assert.*;
  * @author Jussi
  */
 public class LocationTest {
-    
+
     Location loc;
+
     @Before
     public void setUp() {
         loc = new Location();
     }
+
     @Test
-    public void addingShipsWorks(){
+    public void addingShipsWorks() {
         assertEquals(loc.hasShip(), false);
         assertEquals(loc.addShip(), true);
         assertEquals(loc.hasShip(), true);
         assertEquals(loc.addShip(), false);
-        
+
     }
+
     @Test
-    public void removingShipsWorks(){
+    public void removingShipsWorks() {
         assertEquals(loc.hasShip(), false);
-        assertEquals(loc.removeShip(),false);
-        assertEquals(loc.addShip(),true);
-        assertEquals(loc.hasShip(),true);
-        assertEquals(loc.removeShip(),true);
-        assertEquals(loc.hasShip(),false);
-        
+        assertEquals(loc.removeShip(), false);
+        assertEquals(loc.addShip(), true);
+        assertEquals(loc.hasShip(), true);
+        assertEquals(loc.removeShip(), true);
+        assertEquals(loc.hasShip(), false);
+
     }
-    
-   
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

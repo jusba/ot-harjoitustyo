@@ -10,40 +10,45 @@ package com.gisyritys.logic;
  * @author Jussi
  */
 public class Location {
+
     private boolean status;
     private Ship ship;
-    
-    public Location(){
+
+    public Location() {
         this.status = false;
         this.ship = null;
     }
-    
-    public boolean addShip(){
-        if(this.ship == null){
+
+    public boolean addShip() {
+        if (this.ship == null) {
             this.ship = new Ship();
             this.status = true;
             return true;
-            
+
         }
         return false;
     }
-    public boolean removeShip(){
-        if(this.status){
+
+    public boolean removeShip() {
+        if (this.status) {
             this.ship = null;
             this.status = false;
             return true;
-            
+
         }
         return false;
-        
+
     }
-    public Ship getShip(){
+
+    public Ship getShip() {
         return this.ship;
     }
-    public boolean hasShip(){
+
+    public boolean hasShip() {
         return this.status;
     }
-    public void setStatus(){
+
+    public void setStatus() {
         this.status = true;
     }
 }

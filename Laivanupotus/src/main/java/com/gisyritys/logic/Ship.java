@@ -10,25 +10,29 @@ package com.gisyritys.logic;
  * @author Jussi
  */
 public class Ship {
+
     private String tyyppi; // Not impelemnted yet
     private Boolean status; //sink or not sink
-    
-    public Ship(){
+
+    public Ship() {
         this.tyyppi = "Laiva";
         this.status = true;
     }
-    public String getTyyppi(){
+
+    public String getTyyppi() {
         return this.tyyppi;
     }
-    public void sinkShip(){
+
+    public void sinkShip() {
         this.status = false;
     }
-    public boolean getStatus(){
+
+    public boolean getStatus() {
         return this.status;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.tyyppi;
     }
 }

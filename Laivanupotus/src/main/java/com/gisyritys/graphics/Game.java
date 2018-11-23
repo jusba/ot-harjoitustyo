@@ -19,64 +19,56 @@ import javafx.scene.layout.GridPane;
  * @author Jussi
  */
 public class Game {
-        Grid grid;
-    
-    public Game(Grid g){
+
+    Grid grid;
+
+    public Game(Grid g) {
         this.grid = g;
     }
-    
-    public BorderPane getGame(){
+
+    public BorderPane getGame() {
         BorderPane screen = new BorderPane();
         Label type = new Label("testi");
         screen.setTop(type);
-        
+
         GridPane pane = new GridPane();
-        
-        for (int x = 0; x <= this.grid.getGrid().length-1; x++) {
-            for (int y = 0; y <= this.grid.getGrid()[x].length-1; y++) {
-                Label button = new Label("~~"); 
-                if(this.grid.getGrid()[x][y].hasShip()){
+
+        for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
+            for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
+                Label button = new Label("~~");
+                if (this.grid.getGrid()[x][y].hasShip()) {
                     button = new Label("[][]");
                 }
-                
-                
+
                 //Mouse clicks
-                button.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
-                    public void handle(MouseEvent event){
-                        
+                    public void handle(MouseEvent event) {
+
                         //int xloc = pane.getColumnIndex(button);
                         //int yloc = pane.getRowIndex(button);
                         MouseButton mouse = event.getButton();
-                        if(mouse == MouseButton.SECONDARY){
-                        //    Ship ship = grid.getLocation(xloc, yloc).getShip();
-                          //  type.setText("                                      Tyyppi: " + ship.getTyyppi());
-                          //  System.out.println(ship);
-                        }
-                        else{
-                          //  button.setText("[][]");
+                        if (mouse == MouseButton.SECONDARY) {
+                            //    Ship ship = grid.getLocation(xloc, yloc).getShip();
+                            //  type.setText("                                      Tyyppi: " + ship.getTyyppi());
+                            //  System.out.println(ship);
+                        } else {
+                            //  button.setText("[][]");
                             //Poista
-                         //   System.out.println(xloc + "," + yloc);
+                            //   System.out.println(xloc + "," + yloc);
                             //Poista
-                          //  grid.addShip(xloc, yloc);
-                            
+                            //  grid.addShip(xloc, yloc);
+
                         }
-                        
-                        
-                        
-                        
-                        
+
                     }
-                    
+
                 });
                 pane.add(button, x, y);
-                
-                
-                
-                
+
             }
         }
-        
+
         //Bot code wip
 //        Grid bot = new Grid(this.grid.getXSize(),this.grid.getYSize());
 //        bot.randomGrid();
@@ -129,16 +121,15 @@ public class Game {
 //                
 //            }
 //        }
-            //Bot code wip
-        
+        //Bot code wip
         //Just for checking that the random grid works fine
         GridPane botPane = new GridPane();
-        Grid bot = new Grid(this.grid.getXSize(),this.grid.getYSize());
+        Grid bot = new Grid(this.grid.getXSize(), this.grid.getYSize());
         bot.randomGrid();
-        for (int x = 0; x <= bot.getGrid().length-1; x++) {
-            for (int y = 0; y <= bot.getGrid()[x].length-1; y++) {
-                Label button = new Label("~~"); 
-                if(bot.getGrid()[x][y].hasShip()){
+        for (int x = 0; x <= bot.getGrid().length - 1; x++) {
+            for (int y = 0; y <= bot.getGrid()[x].length - 1; y++) {
+                Label button = new Label("~~");
+                if (bot.getGrid()[x][y].hasShip()) {
                     button = new Label("[][]");
                 }
                 botPane.add(button, x, y);
@@ -150,9 +141,8 @@ public class Game {
         screen.setLeft(pane);
         screen.setCenter(keski);
         screen.setRight(botPane);
-        
+
         return screen;
-       
+
     }
 }
-    
