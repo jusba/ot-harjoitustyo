@@ -1,4 +1,5 @@
 # työaikakirjanpito
+##### Aikaa käytetty yhteensä: 22,5h
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -10,3 +11,4 @@
 |16.11.18|2h|Pientä hienosäätöä ja mavenin ja javan ja virtualboxin kanssa painimista|
 |21.11.18|2h|Random gridin viritytystä|
 |22.11.18|3h|Random gridin jatkoviritystä|
+|23.11.18|3h|Jacoco, checkstyle, pakkausrakenne, koodin ulkoasu, arkkitehtuuri, pakkauskaavio, pientä säätöä randomgridiin|
