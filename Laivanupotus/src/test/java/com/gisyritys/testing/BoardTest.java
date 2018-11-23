@@ -36,7 +36,7 @@ public class BoardTest {
         assertEquals((board instanceof Board), true);
     }
     @Test
-    public void gridSizeRight(){
+    public void boardsGridSizeRight(){
         int x = board.getBoard().getXSize();
         int y = board.getBoard().getYSize();
         int sum = 0;
