@@ -1,5 +1,5 @@
 # työaikakirjanpito
-##### Aikaa käytetty yhteensä: 22,5h
+##### Aikaa käytetty yhteensä: 29,5h (päivitetty 28.11)
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
