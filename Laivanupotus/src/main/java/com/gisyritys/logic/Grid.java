@@ -374,6 +374,25 @@ public class Grid {
         }
 
     }
+    public boolean checkGrid(){
+        int shipAmount = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if(grid[i][j].hasShip()){
+                    if(grid[i][j].getShip().getStatus()){
+                        shipAmount ++;
+                        
+                    }
+                }
+                
+            }
+
+        }
+        if(shipAmount > 0){
+            return true;
+        }
+        return false;
+    }
 
     // Not used atm.
     public boolean checkSides(int x, int y) {
