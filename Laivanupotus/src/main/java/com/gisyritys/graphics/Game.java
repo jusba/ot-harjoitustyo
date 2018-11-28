@@ -28,23 +28,24 @@ public class Game {
 
     Grid grid;
     Grid bot;
-    Boolean clicked;
+    Boolean gameOn;
 
     public Game(Grid g,Grid b) {
         this.grid = g;
         this.bot = b;
-        clicked = false;
+        this.gameOn = true;
+        
     }
 
     public BorderPane getGame() {
         BorderPane screen = new BorderPane();
-        Label type = new Label("testi");
+        Label type = new Label("Peli käynnissä");
         screen.setTop(type);
 
         BotGame botGame = new BotGame(this.grid);
         GridPane pane = botGame.startGrid();
 
-        //Bot code wip
+        
         
         
         GridPane botPane = new GridPane();
@@ -67,12 +68,12 @@ public class Game {
                         MouseButton mouse = event.getButton();
                         if(mouse == MouseButton.SECONDARY){
                         //    Ship ship = grid.getLocation(xloc, yloc).getShip();
-                          //  type.setText("                                      Tyyppi: " + ship.getTyyppi());
+//                            type.setText("                                      Tyyppi: " + bot.getGrid()[xloc][yloc].getShip().getTyyppi());
                           //  System.out.println(ship);
                             System.out.println(xloc + ":=:"+ yloc);
                         }
                         
-                        else{
+                        else if(mouse == MouseButton.PRIMARY && gameOn){
                             Boolean play = false;
                             if(bot.getGrid()[xloc][yloc].hasShip()){
                                 
@@ -100,6 +101,15 @@ public class Game {
                             System.out.println(xloc+ ":" + yloc);
                             
                             bot.getGrid()[xloc][yloc].setGuessed();
+                            
+                            if(!grid.checkGrid()){
+                                type.setText("Tietokone voitti!");
+                                gameOn = grid.checkGrid();
+                            }
+                            if(!bot.checkGrid()){
+                                type.setText("Sinä voitit!");
+                                gameOn = bot.checkGrid();
+                            }
                             
                             
                             
@@ -153,5 +163,11 @@ public class Game {
 
         return screen;
 
+    }
+    public Grid getGrid(){
+        return this.grid;
+    }
+    public Grid getBotGrid(){
+        return this.bot;
     }
 }

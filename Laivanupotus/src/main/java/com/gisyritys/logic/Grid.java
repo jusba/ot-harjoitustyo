@@ -388,9 +388,12 @@ public class Grid {
             }
 
         }
+        System.out.println(shipAmount);
         if(shipAmount > 0){
+            System.out.println(":D");
             return true;
         }
+        System.out.println("D:");
         return false;
     }
 
