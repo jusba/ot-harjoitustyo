@@ -13,10 +13,12 @@ public class Location {
 
     private boolean status;
     private Ship ship;
+    private boolean guessed;
 
     public Location() {
         this.status = false;
         this.ship = null;
+        this.guessed = false;
     }
 
     public boolean addShip() {
@@ -38,6 +40,12 @@ public class Location {
         }
         return false;
 
+    }
+    public void setGuessed(){
+        this.guessed = true;
+    }
+    public boolean getGuessed(){
+        return this.guessed;
     }
 
     public Ship getShip() {

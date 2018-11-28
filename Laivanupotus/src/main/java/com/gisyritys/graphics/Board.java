@@ -10,6 +10,7 @@ import com.gisyritys.logic.Ship;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -20,7 +21,10 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -100,12 +104,12 @@ public class Board {
 
         for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
             for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
-                String status = "Sea";
-                if (this.grid.getGrid()[x][y].hasShip()) {
-                    status = "Ship";
-                }
+                
 
                 Label button = new Label("~~");
+                BackgroundFill b = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#376b9a"), CornerRadii.EMPTY, Insets.EMPTY);
+                Background background = new Background(b);
+                button.setBackground(background);
                 //Mouse clicks
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
@@ -119,7 +123,9 @@ public class Board {
                             lbl.setText("                                      Tyyppi: " + ship.getTyyppi());
                             System.out.println(ship);
                         } else {
-                            button.setText("[][]");
+                            BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
+                            Background backgroundShip = new Background(bShip);
+                            button.setBackground(backgroundShip);
                             //Poista
                             System.out.println(xloc + "," + yloc);
                             //Poista

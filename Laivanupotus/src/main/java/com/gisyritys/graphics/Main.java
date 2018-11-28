@@ -28,6 +28,8 @@ public class Main extends Application {
         Scene menu = new Scene(start);
         Board board = new Board();
         Grid grid = board.getBoard();
+        Grid botGrid = new Grid(10,10);
+        botGrid.randomGrid();
 
         start.setOnAction((event) -> {
             BorderPane b = board.boardScene();
@@ -35,7 +37,7 @@ public class Main extends Application {
             cont.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    Game game = new Game(board.getBoard());
+                    Game game = new Game(board.getBoard(),botGrid);
                     BorderPane p = game.getGame();
                     Scene gameScene = new Scene(p);
                     w.setScene(gameScene);
