@@ -36,52 +36,71 @@ public class BotGame {
         GridPane pane = new GridPane();
         int xCoord = chooseX();
         int yCoord = chooseY();
+        boolean match = true;
+        while(true){
+            for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
+                for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
 
-        for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
-            for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
-                
-                Label button = new Label("~~");
-                BackgroundFill b = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#376b9a"), CornerRadii.EMPTY, Insets.EMPTY);
-                Background background = new Background(b);
-                button.setBackground(background);
-                if(xCoord == x && yCoord == y ||this.grid.getGrid()[x][y].getGuessed() ){
-                    this.grid.getGrid()[x][y].setGuessed();
-                    
-                    BackgroundFill bGuessed = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#54aeff"), CornerRadii.EMPTY, Insets.EMPTY);
-                    Background backgroundGuessed = new Background(bGuessed);
-                    button.setBackground(backgroundGuessed);
-                }
-                
-                if (this.grid.getGrid()[x][y].hasShip() && this.grid.getGrid()[x][y].getShip().getStatus()) {
-                    if(xCoord == x && yCoord == y){
-                        BackgroundFill bSink = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#eea331"), CornerRadii.EMPTY, Insets.EMPTY);
-                        Background backgroundSink = new Background(bSink);
-                        button.setBackground(backgroundSink);
-                        grid.getLocation(x, y).getShip().sinkShip();
+                    Label button = new Label("~~");
+                    BackgroundFill b = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#376b9a"), CornerRadii.EMPTY, Insets.EMPTY);
+                    Background background = new Background(b);
+                    button.setBackground(background);
+                    if(this.grid.getGrid()[x][y].getGuessed() ){
+
+
+                        BackgroundFill bGuessed = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#54aeff"), CornerRadii.EMPTY, Insets.EMPTY);
+                        Background backgroundGuessed = new Background(bGuessed);
+                        button.setBackground(backgroundGuessed);
+                    }
+                    if(xCoord == x && yCoord == y && !this.grid.getGrid()[x][y].getGuessed() ){
+                        BackgroundFill bGuessed = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#54aeff"), CornerRadii.EMPTY, Insets.EMPTY);
+                        Background backgroundGuessed = new Background(bGuessed);
+                        button.setBackground(backgroundGuessed);
                         this.grid.getGrid()[x][y].setGuessed();
-                        
-                        
+                        match = false;
+
                     }
-                    else{
-                        BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
-                        Background backgroundShip = new Background(bShip);
-                        button.setBackground(backgroundShip);
+
+                    if (this.grid.getGrid()[x][y].hasShip() && this.grid.getGrid()[x][y].getShip().getStatus()) {
+                        if(xCoord == x && yCoord == y){
+                            BackgroundFill bSink = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#eea331"), CornerRadii.EMPTY, Insets.EMPTY);
+                            Background backgroundSink = new Background(bSink);
+                            button.setBackground(backgroundSink);
+                            grid.getLocation(x, y).getShip().sinkShip();
+                            this.grid.getGrid()[x][y].setGuessed();
+                            match = false;
+
+
+                        }
+                        else{
+                            BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
+                            Background backgroundShip = new Background(bShip);
+                            button.setBackground(backgroundShip);
+                        }
+
+                    }
+                    if(this.grid.getGrid()[x][y].hasShip()){
+                        if(this.grid.getGrid()[x][y].getShip().getStatus() == false){
+                            BackgroundFill bSink = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#eea331"), CornerRadii.EMPTY, Insets.EMPTY);
+                            Background backgroundSink = new Background(bSink);
+                            button.setBackground(backgroundSink);
+                        }
                     }
                     
-                }
-                if(this.grid.getGrid()[x][y].hasShip()){
-                    if(this.grid.getGrid()[x][y].getShip().getStatus() == false){
-                        BackgroundFill bSink = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#eea331"), CornerRadii.EMPTY, Insets.EMPTY);
-                        Background backgroundSink = new Background(bSink);
-                        button.setBackground(backgroundSink);
-                    }
-                }
-                
 
-                pane.add(button, x, y);
 
+                    pane.add(button, x, y);
+
+                }
             }
+            if(!match){
+                
+                break;
+            }
+            xCoord = chooseX();
+            yCoord = chooseY();
         }
+        
         return pane;
     }
     public GridPane startGrid(){

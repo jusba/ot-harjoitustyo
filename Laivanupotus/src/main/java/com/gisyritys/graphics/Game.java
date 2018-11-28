@@ -81,10 +81,13 @@ public class Game {
                                 Background background = new Background(b);
                                 button.setBackground(background);
                                 
-                                
-                                bot.getLocation(xloc, yloc).getShip().sinkShip();
-                               
                                 play = true;
+                                if(!bot.getGrid()[xloc][yloc].getShip().getStatus()){
+                                    play = false;
+                                }
+                                bot.getLocation(xloc, yloc).getShip().sinkShip();
+                                
+                                
                             }
                             else if(!bot.getGrid()[xloc][yloc].hasShip()&& !bot.getGrid()[xloc][yloc].getGuessed()){
                                 play = true;

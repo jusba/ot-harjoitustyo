@@ -390,19 +390,45 @@ public class Grid {
         }
         System.out.println(shipAmount);
         if(shipAmount > 0){
-            System.out.println(":D");
+            
             return true;
         }
-        System.out.println("D:");
+        
         return false;
     }
 
-    // Not used atm.
-    public boolean checkSides(int x, int y) {
-        if (this.grid[x - 1][y].hasShip() || this.grid[x + 1][y].hasShip() || this.grid[x][y - 1].hasShip() || this.grid[x][y + 1].hasShip()) {
-            return true;
+   
+    public int[] gridCheckerStats(){
+        int shipAmount = 0;
+        int floatAmount = 0;
+        int seaAmount = 0;
+        int guessed = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if(grid[i][j].hasShip()){
+                        shipAmount ++;
+                    if(grid[i][j].getShip().getStatus()){
+                        floatAmount ++;
+                        
+                    }
+                }
+                if(!grid[i][j].hasShip()){
+                    seaAmount ++;
+                }
+                if(grid[i][j].getGuessed()){
+                    guessed ++;
+                }
+                
+                
+            }
+
         }
-        return false;
+        int[] list = new int[4];
+        list[0] = shipAmount;
+        list[1] = floatAmount;
+        list[2] = seaAmount;
+        list[3] = guessed;
+        return list;
     }
 
     //Not used atm.
