@@ -1,5 +1,5 @@
 # työaikakirjanpito
-##### Aikaa käytetty yhteensä: 22,5h
+##### Aikaa käytetty yhteensä: 29,5h (päivitetty 28.11)
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -12,3 +12,4 @@
 |21.11.18|2h|Random gridin viritytystä|
 |22.11.18|3h|Random gridin jatkoviritystä|
 |23.11.18|3h|Jacoco, checkstyle, pakkausrakenne, koodin ulkoasu, arkkitehtuuri, pakkauskaavio, pientä säätöä randomgridiin|
+|28.11.18|7h|Oikeasti pystyy pelata, värejä, voi voittaa, tilastoja, bugikorjausta|
