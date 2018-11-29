@@ -41,15 +41,21 @@ public class Location {
         return false;
 
     }
-    public void setGuessed(){
+
+    public void setGuessed() {
         this.guessed = true;
     }
-    public boolean getGuessed(){
+
+    public boolean getGuessed() {
         return this.guessed;
     }
 
     public Ship getShip() {
         return this.ship;
+    }
+
+    public boolean getStatus() {
+        return this.status;
     }
 
     public boolean hasShip() {

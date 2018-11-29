@@ -9,5 +9,6 @@
 	<suppress files="com.gisyritys.graphics.BotGame.java" checks="[a-zA-Z0-9]*"/>
 	<suppress files="com.gisyritys.graphics.Game.java" checks="[a-zA-Z0-9]*"/>
 	<suppress files="com.gisyritys.graphics.Main.java" checks="[a-zA-Z0-9]*"/>
+	<suppress files="com.gisyritys.graphics.Stats.java" checks="[a-zA-Z0-9]*"/>
     
 </suppressions>

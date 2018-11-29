@@ -104,7 +104,6 @@ public class Board {
 
         for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
             for (int y = 0; y <= this.grid.getGrid()[x].length - 1; y++) {
-                
 
                 Label button = new Label("~~");
                 BackgroundFill b = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#376b9a"), CornerRadii.EMPTY, Insets.EMPTY);

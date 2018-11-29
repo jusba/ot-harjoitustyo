@@ -14,42 +14,43 @@ import javafx.scene.layout.BorderPane;
  * @author Jussi
  */
 public class Stats {
+
     private Grid playerGrid;
     private Grid botGrid;
-    
-    public Stats(Grid p, Grid b ){
+
+    public Stats(Grid p, Grid b) {
         playerGrid = p;
         botGrid = b;
-        
+
     }
-    public BorderPane getStatsPane(){
+
+    public BorderPane getStatsPane() {
         BorderPane stats = new BorderPane();
-        String labelText = "Tilastot: " +"\n" + "" + "\n";
-        for(String amount: checkGrids() ){
-            labelText = labelText + amount +"\n"; 
+        String labelText = "Tilastot: " + "\n" + "" + "\n";
+        for (String amount : checkGrids()) {
+            labelText = labelText + amount + "\n";
         }
         Label label = new Label(labelText);
         stats.setCenter(label);
         return stats;
-        
+
     }
-    public String[] checkGrids(){
+
+    public String[] checkGrids() {
         int[] player = playerGrid.gridCheckerStats();
         int[] bot = botGrid.gridCheckerStats();
-        
+
         String[] list = new String[8];
         list[0] = "Omia laivaruutuja jäljellä: " + player[1];
         list[1] = "Laivoja alunperin: " + player[0];
-        list[2] = "Meriruutuja: " +player[2];
-        list[3] = "Arvattuja ruutuja: " + player[3] + "\n" + "" + "\n" + "----------------------------------------------------------" + "\n" +"" ;
-        list[4] = "Vihollisen laivaruutuja jäljellä: " +bot[1];  
+        list[2] = "Meriruutuja: " + player[2];
+        list[3] = "Arvattuja ruutuja: " + player[3] + "\n" + "" + "\n" + "----------------------------------------------------------" + "\n" + "";
+        list[4] = "Vihollisen laivaruutuja jäljellä: " + bot[1];
         list[5] = "Vihollisen laivoja alunperin: " + bot[0];
         list[6] = "Vihollisen meriruutuja: " + bot[2];
         list[7] = "Vihollisen arvaamia ruutuja : " + bot[3];
-        
+
         return list;
     }
-    
-           
-         
+
 }

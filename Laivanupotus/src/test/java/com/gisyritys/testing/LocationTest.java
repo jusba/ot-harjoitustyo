@@ -6,6 +6,7 @@
 package com.gisyritys.testing;
 
 import com.gisyritys.logic.Location;
+import com.gisyritys.logic.Ship;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,6 +45,15 @@ public class LocationTest {
         assertEquals(loc.removeShip(), true);
         assertEquals(loc.hasShip(), false);
 
+    }
+    @Test
+    public void settersAndGettersWorks() {
+        loc.setGuessed();
+        assertEquals(loc.getGuessed(), true);
+        loc.setStatus();
+        assertEquals(loc.getStatus(), true);
+        loc.addShip();
+        assertEquals((loc.getShip() instanceof Ship), true);
     }
 
     // TODO add test methods here.

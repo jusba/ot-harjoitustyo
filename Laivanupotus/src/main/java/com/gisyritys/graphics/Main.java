@@ -21,47 +21,41 @@ import javafx.scene.layout.BorderPane;
  * @author Jussi
  */
 public class Main extends Application {
-    
+
     @Override
     public void start(Stage w) {
         Button start = new Button("Aloita peli");
         Scene menu = new Scene(start);
-        
 
         start.setOnAction((event) -> {
             Board board = new Board();
-            Grid grid = board.getBoard();
-            Grid botGrid = new Grid(10,10);
+            Grid botGrid = new Grid(10, 10);
             botGrid.randomGrid();
             BorderPane b = board.boardScene();
             Button cont = new Button("Valmis");
             cont.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    Game game = new Game(board.getBoard(),botGrid);
+                    Game game = new Game(board.getBoard(), botGrid);
                     Button stop = new Button("Lopeta peli");
-                    
-                    
-                    
+
                     stop.setOnAction((eventStats) -> {
-                        Stats stats = new Stats(game.getGrid(),game.getBotGrid());
+                        Stats stats = new Stats(game.getGrid(), game.getBotGrid());
                         BorderPane statsPane = stats.getStatsPane();
                         Button toMenu = new Button("Valikkoon");
-                        
+
                         statsPane = stats.getStatsPane();
                         toMenu.setOnAction((eventQuit) -> {
-                           
+
                             w.setScene(menu);
-                        
+
                         });
                         statsPane.setRight(toMenu);
                         Scene statsScene = new Scene(statsPane);
                         w.setScene(statsScene);
-                        
-                        
-                        
-                    });   
-                    
+
+                    });
+
                     BorderPane p = game.getGame();
                     p.setBottom(stop);
                     Scene gameScene = new Scene(p);

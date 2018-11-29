@@ -49,7 +49,7 @@ public class Grid {
         Random random = new Random();
         int startX = random.nextInt(this.xsize);
         int startY = random.nextInt(this.ysize);
-        int dir = random.nextInt(3);
+        int dir = random.nextInt(4);
 
         Boolean test = false;
         while (true) {
@@ -62,7 +62,7 @@ public class Grid {
                     //north
                     if (startY - pieces < 0 && passed) {
                         System.out.println("DirY: " + dir);
-                        dir = random.nextInt(3);
+                        dir = random.nextInt(4);
                         startX = random.nextInt(this.xsize);
                         startY = random.nextInt(this.ysize);
                         i--;
@@ -72,7 +72,7 @@ public class Grid {
 
                         if (this.grid[testiX][testiY].hasShip() && passed) {
                             System.out.println("Dir: " + dir);
-                            dir = random.nextInt(3);
+                            dir = random.nextInt(4);
                             startX = random.nextInt(this.xsize);
                             startY = random.nextInt(this.ysize);
                             test = true;
@@ -80,7 +80,7 @@ public class Grid {
                         if (testiX - 1 >= 0 && passed) {
                             if (this.grid[testiX - 1][testiY].hasShip()) {
                                 System.out.println("DirN: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -89,7 +89,7 @@ public class Grid {
                         if (testiX + 1 <= this.xsize - 1 && passed) {
                             if (this.grid[testiX + 1][testiY].hasShip()) {
                                 System.out.println("DirN: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -98,7 +98,7 @@ public class Grid {
                         if (testiY - 1 >= 0 && passed) {
                             if (this.grid[testiX][testiY - 1].hasShip()) {
                                 System.out.println("DirN: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -107,7 +107,7 @@ public class Grid {
                         if (testiY + 1 <= this.ysize - 1 && passed) {
                             if (this.grid[testiX][testiY + 1].hasShip()) {
                                 System.out.println("DirN: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -139,7 +139,7 @@ public class Grid {
                         System.out.println("DirY: " + dir);
                         startX = random.nextInt(this.xsize);
                         startY = random.nextInt(this.ysize);
-                        dir = random.nextInt(3);
+                        dir = random.nextInt(4);
                         i--;
                         continue;
                     }
@@ -147,7 +147,7 @@ public class Grid {
 
                         if (this.grid[testiX][testiY].hasShip() && passed) {
                             System.out.println("Dir: " + dir);
-                            dir = random.nextInt(3);
+                            dir = random.nextInt(4);
                             startX = random.nextInt(this.xsize);
                             startY = random.nextInt(this.ysize);
                             test = true;
@@ -155,7 +155,7 @@ public class Grid {
                         if (testiX - 1 >= 0) {
                             if (this.grid[testiX - 1][testiY].hasShip() && passed) {
                                 System.out.println("DirE: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -164,7 +164,7 @@ public class Grid {
                         if (testiX + 1 <= this.xsize - 1) {
                             if (this.grid[testiX + 1][testiY].hasShip() && passed) {
                                 System.out.println("DirE: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -173,7 +173,7 @@ public class Grid {
                         if (testiY - 1 >= 0) {
                             if (this.grid[testiX][testiY - 1].hasShip() && passed) {
                                 System.out.println("DirE: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -182,7 +182,7 @@ public class Grid {
                         if (testiY + 1 <= this.ysize - 1) {
                             if (this.grid[testiX][testiY + 1].hasShip() && passed) {
                                 System.out.println("DirE: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -212,7 +212,7 @@ public class Grid {
                     //south
                     if (startY + pieces > this.ysize - 1 && passed) {
                         System.out.println("DirY: " + dir);
-                        dir = random.nextInt(3);
+                        dir = random.nextInt(4);
                         startX = random.nextInt(this.xsize);
                         startY = random.nextInt(this.ysize);
                         i--;
@@ -222,7 +222,7 @@ public class Grid {
 
                         if (this.grid[testiX][testiY].hasShip() && passed) {
                             System.out.println("Dir: " + dir);
-                            dir = random.nextInt(3);
+                            dir = random.nextInt(4);
                             startX = random.nextInt(this.xsize);
                             startY = random.nextInt(this.ysize);
                             test = true;
@@ -230,7 +230,7 @@ public class Grid {
                         if (testiX - 1 >= 0) {
                             if (this.grid[testiX - 1][testiY].hasShip() && passed) {
                                 System.out.println("DirS: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -239,7 +239,7 @@ public class Grid {
                         if (testiX + 1 <= this.xsize - 1) {
                             if (this.grid[testiX + 1][testiY].hasShip() && passed) {
                                 System.out.println("DirS: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -248,7 +248,7 @@ public class Grid {
                         if (testiY - 1 >= 0) {
                             if (this.grid[testiX][testiY - 1].hasShip() && passed) {
                                 System.out.println("DirS: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -257,7 +257,7 @@ public class Grid {
                         if (testiY + 1 <= this.ysize - 1) {
                             if (this.grid[testiX][testiY + 1].hasShip() && passed) {
                                 System.out.println("DirS: " + dir);
-                                dir = random.nextInt(3);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -286,7 +286,7 @@ public class Grid {
                     //west
                     if (startX - pieces < 0 && passed) {
                         System.out.println("DirY: " + dir);
-                        dir = random.nextInt(3);
+                        dir = random.nextInt(4);
                         startX = random.nextInt(this.xsize);
                         startY = random.nextInt(this.ysize);
                         i--;
@@ -296,15 +296,15 @@ public class Grid {
 
                         if (this.grid[testiX][testiY].hasShip() && passed) {
                             System.out.println("Dir: " + dir);
-                            dir = random.nextInt(3);
+                            dir = random.nextInt(4);
                             startX = random.nextInt(this.xsize);
                             startY = random.nextInt(this.ysize);
                             test = true;
                         }
                         if (testiX - 1 >= 0) {
                             if (this.grid[testiX - 1][testiY].hasShip() && passed) {
-                                System.out.println("DirW: " + dir);
-                                dir = random.nextInt(3);
+                                System.out.println("DirS: " + dir);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -312,8 +312,8 @@ public class Grid {
                         }
                         if (testiX + 1 <= this.xsize - 1) {
                             if (this.grid[testiX + 1][testiY].hasShip() && passed) {
-                                System.out.println("DirW: " + dir);
-                                dir = random.nextInt(3);
+                                System.out.println("DirS: " + dir);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -321,8 +321,8 @@ public class Grid {
                         }
                         if (testiY - 1 >= 0) {
                             if (this.grid[testiX][testiY - 1].hasShip() && passed) {
-                                System.out.println("DirW: " + dir);
-                                dir = random.nextInt(3);
+                                System.out.println("DirS: " + dir);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -330,8 +330,8 @@ public class Grid {
                         }
                         if (testiY + 1 <= this.ysize - 1) {
                             if (this.grid[testiX][testiY + 1].hasShip() && passed) {
-                                System.out.println("DirW: " + dir);
-                                dir = random.nextInt(3);
+                                System.out.println("DirS: " + dir);
+                                dir = random.nextInt(4);
                                 startX = random.nextInt(this.xsize);
                                 startY = random.nextInt(this.ysize);
                                 test = true;
@@ -367,59 +367,58 @@ public class Grid {
             if (pieces > 5) {
                 return;
             }
-            startX = random.nextInt(this.xsize - 1);
-            startY = random.nextInt(this.ysize - 1);
-            dir = random.nextInt(3);
+            startX = random.nextInt(this.xsize);
+            startY = random.nextInt(this.ysize);
+            dir = random.nextInt(4);
 
         }
 
     }
-    public boolean checkGrid(){
+
+    public boolean checkGrid() {
         int shipAmount = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                if(grid[i][j].hasShip()){
-                    if(grid[i][j].getShip().getStatus()){
-                        shipAmount ++;
-                        
+                if (grid[i][j].hasShip()) {
+                    if (grid[i][j].getShip().getStatus()) {
+                        shipAmount++;
+
                     }
                 }
-                
+
             }
 
         }
         System.out.println(shipAmount);
-        if(shipAmount > 0){
-            
+        if (shipAmount > 0) {
+
             return true;
         }
-        
+
         return false;
     }
 
-   
-    public int[] gridCheckerStats(){
+    public int[] gridCheckerStats() {
         int shipAmount = 0;
         int floatAmount = 0;
         int seaAmount = 0;
         int guessed = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                if(grid[i][j].hasShip()){
-                        shipAmount ++;
-                    if(grid[i][j].getShip().getStatus()){
-                        floatAmount ++;
-                        
+                if (grid[i][j].hasShip()) {
+                    shipAmount++;
+                    if (grid[i][j].getShip().getStatus()) {
+                        floatAmount++;
+
                     }
                 }
-                if(!grid[i][j].hasShip()){
-                    seaAmount ++;
+                if (!grid[i][j].hasShip()) {
+                    seaAmount++;
                 }
-                if(grid[i][j].getGuessed()){
-                    guessed ++;
+                if (grid[i][j].getGuessed()) {
+                    guessed++;
                 }
-                
-                
+
             }
 
         }
