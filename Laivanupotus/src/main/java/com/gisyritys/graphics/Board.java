@@ -36,26 +36,29 @@ import javafx.stage.Stage;
 public class Board {
 
     private Grid grid;
-    private int column;
+    private int ships;
 
     public Board() {
         this.grid = new Grid(10, 10);
+        this.ships = 15;
 
     }
 
     public Grid getBoard() {
-
+        
         return this.grid;
     }
 
     public BorderPane boardScene() {
         BorderPane screen = new BorderPane();
-        Label lbl = new Label("                                      Tyyppi: ");
+        
+        Label lbl = new Label("Aseta laivat              Paloja jäljellä: " + ships);
         //Ship type indicator
         screen.setTop(lbl);
         //Continue to next scene
 
         Label cont = new Label("Valmis");
+        
         cont.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -65,39 +68,11 @@ public class Board {
         });
         screen.setRight(cont);
         //Ship type selection
-        VBox vbox = new VBox();
+        
 
-        ToggleGroup ships = new ToggleGroup();
-        RadioButton lt = new RadioButton("Lentotukialus");
-        lt.setUserData(1);
-        lt.setToggleGroup(ships);
-        RadioButton tl = new RadioButton("Taistelulaiva");
-        tl.setUserData(2);
-        tl.setToggleGroup(ships);
-        RadioButton ri = new RadioButton("Risteilijä");
-        ri.setUserData(3);
-        ri.setToggleGroup(ships);
-        RadioButton ha = new RadioButton("Hävittäjä");
-        ha.setUserData(4);
-        ha.setToggleGroup(ships);
-        RadioButton su = new RadioButton("Sukellusvene");
-        su.setUserData(5);
-        su.setToggleGroup(ships);
-
-        ships.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-            }
-
-        });
-        vbox.getChildren().add(lt);
-        vbox.getChildren().add(tl);
-        vbox.getChildren().add(ri);
-        vbox.getChildren().add(ha);
-        vbox.getChildren().add(su);
-
-        screen.setLeft(vbox);
+        
+        
+        
 
         //Ship Grid
         GridPane pane = new GridPane();
@@ -117,18 +92,23 @@ public class Board {
                         int xloc = pane.getColumnIndex(button);
                         int yloc = pane.getRowIndex(button);
                         MouseButton mouse = event.getButton();
-                        if (mouse == MouseButton.SECONDARY) {
-                            Ship ship = grid.getLocation(xloc, yloc).getShip();
-                            lbl.setText("                                      Tyyppi: " + ship.getTyyppi());
-                            System.out.println(ship);
-                        } else {
+                        if (mouse == MouseButton.SECONDARY && ships < 15 && grid.getLocation(xloc, yloc).hasShip()) {
+                            BackgroundFill b = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#376b9a"), CornerRadii.EMPTY, Insets.EMPTY);
+                            Background background = new Background(b);
+                            button.setBackground(background);
+                            ships = ships +1;
+                            lbl.setText("Aseta laivat              Paloja jäljellä: " + ships);
+                            grid.removeShip(xloc, yloc);
+                            
+                        } 
+                        else if(mouse == MouseButton.PRIMARY && ships > 0 && !grid.getLocation(xloc, yloc).hasShip()) {
                             BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
                             Background backgroundShip = new Background(bShip);
                             button.setBackground(backgroundShip);
-                            //Poista
-                            System.out.println(xloc + "," + yloc);
-                            //Poista
+                            ships = ships -1;
+                            lbl.setText("Aseta laivat              Paloja jäljellä: " + ships);
                             grid.addShip(xloc, yloc);
+                            
 
                         }
 
