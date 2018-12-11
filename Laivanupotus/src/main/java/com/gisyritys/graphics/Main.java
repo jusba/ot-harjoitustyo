@@ -5,6 +5,7 @@
  */
 package com.gisyritys.graphics;
 
+import com.gisyritys.logic.DBStats;
 import com.gisyritys.logic.Grid;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
 /**
  *
@@ -25,8 +27,16 @@ public class Main extends Application {
     @Override
     public void start(Stage w) {
         Button start = new Button("Aloita peli");
-        Scene menu = new Scene(start);
-
+        BorderPane menuPane = new BorderPane();
+        menuPane.setLeft(start);
+       
+        DBStats db = new DBStats();
+        db.createDB();
+        Button statButton = new Button("Tilastot");
+        menuPane.setRight(statButton);
+        Scene menu = new Scene(menuPane);
+        
+        
         start.setOnAction((event) -> {
             Board board = new Board();
             Grid botGrid = new Grid(10, 10);
@@ -43,8 +53,9 @@ public class Main extends Application {
                         Stats stats = new Stats(game.getGrid(), game.getBotGrid());
                         BorderPane statsPane = stats.getStatsPane();
                         Button toMenu = new Button("Valikkoon");
-
+                        
                         statsPane = stats.getStatsPane();
+                        db.addToDB(stats.checkGridsDB());
                         toMenu.setOnAction((eventQuit) -> {
 
                             w.setScene(menu);
@@ -71,7 +82,23 @@ public class Main extends Application {
             //Onko kirjotustyyli oikee?
 
         });
+        
+        statButton.setOnAction((event) -> {
+            Grid g1 = new Grid(10,10);
+            Grid g2 = new Grid(10,10);
+            Stats dbStats = new Stats (g1,g2);
+            GridPane dbPane = dbStats.getDbStatsPane(db.getDB());
+            Button toMenu = new Button("Valikkoon");
+            toMenu.setOnAction((eventQuit) -> {
 
+                w.setScene(menu);
+
+            });
+            dbPane.add(toMenu, 4, 0);
+            Scene statsScene = new Scene(dbPane);    
+            w.setScene(statsScene);
+            });
+        
         w.setScene(menu);
         w.setTitle("Laivanupotus");
         w.show();
