@@ -13,7 +13,9 @@ Tällä hetkellä sovelluksesta on toiminnassa hyvin alkeellinen laivanasetus, m
 - [Käyttöohje](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/kayttohje.md)
 
 ### Releaset
-- [Viikko 5](https://github.com/jusba/ot-harjoitustyo/releases)
+- [Viikko 6](https://github.com/jusba/ot-harjoitustyo/releases/tag/Viikko6
+- [Viikko 5](https://github.com/jusba/ot-harjoitustyo/releases/tag/Viikko5)
+
 
 ### Komentorivikomennot
 Komennot suoritetaan sovelluksen pääkansiossa
