@@ -27,10 +27,13 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 - Valikossa näkyy käytettyjen vuorojen määrä, molempien pelaajien valittujen ruutujen ja osumien määrä.
 - Tulosvalikosta siirrytään takaisin päävalikkoon
 
+##### Edellisten pelien tulosvalikko
+- Valikossa näkyy tietokannasta haettuja edellisten pelien tuloksia
+
 ### Mahdollisia lisätoiminnallisuuksia
 - Kaksinpeli
 - Tietokoneelle eri vaikeusasteita
-- Tilastovalikko johon pääsee päävalikosta, mikä näyttää aikaisempien pelien tilastoja
+- Tilastovalikko johon pääsee päävalikosta, mikä näyttää aikaisempien pelien tilastoja (toteutettu)
 - Muutettava peliruudukon koko
 - Muutettava laivojen määrä
 - Muita sovelluksen kehityksen aikana tarkentuvia ominaisuuksia
