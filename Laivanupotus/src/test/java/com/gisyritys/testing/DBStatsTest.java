@@ -49,7 +49,7 @@ public class DBStatsTest {
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            assertEquals(true, false);
+            
         }
         
         db.createDB();
@@ -88,7 +88,7 @@ public class DBStatsTest {
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            assertEquals(true, false);
+            
         }
         
         db.createDB();
