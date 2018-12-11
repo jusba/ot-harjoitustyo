@@ -40,7 +40,7 @@ public class Stats {
     public GridPane getDbStatsPane(ArrayList<int[]> games){
         GridPane stats = new GridPane();
         Label header = new Label("TIlastot");
-        Label header2 = new Label("Viimeiset 5 peliä:");
+        Label header2 = new Label("Viimeiset 50 peliä:");
         stats.add(header, 0, 0);
         stats.add(header2, 0, 2);
         Label own = new Label("Omia laivoja alunperin ");
