@@ -1,5 +1,5 @@
 # Työaikakirjanpito
-##### Aikaa käytetty yhteensä: 33h (päivitetty 6.12)
+##### Aikaa käytetty yhteensä: 41h (päivitetty 11.12)
 
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
@@ -15,3 +15,4 @@
 |28.11.18|7h|Oikeasti pystyy pelata, värejä, voi voittaa, tilastoja, bugikorjausta|
 |29.11.18|2.5h|Bugien korjausta, testien kirjotusta, jar tiedosto, jacoco ja checkstyle, sekvenssikaavio, release, readme&arkkitehtuuri|
 |6.12.2018|1h|Ihmispelaajan laivojen laiton rajoitusta|
+|11.12.2018|8h|Tilastovalikko, tietokanta, javadocia, vaatimusten päivitystä, alustava käyttöohje, alustavaa arkkitehtuurikorjausta, yleistä siistimistä|
