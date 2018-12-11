@@ -35,3 +35,9 @@ Generoitu jar-tiedosto löytyy target kansiosta (Laivanupotus-1.0-SNAPSHOT)
 Komento:  
 `mvn jxr:jxr checkstyle:checkstyle`    
 Checkstyle virheet löytyy sovelluksen kansiosta target/site/checkstyle.html  
+
+#### JavaDocin luonti
+Komento:  
+`mvn javadoc:javadoc`    
+Luotu JavaDoc löytyy kansiosta target/site/apidocs/index.html
+
