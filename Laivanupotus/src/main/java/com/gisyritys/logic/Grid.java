@@ -469,7 +469,7 @@ public class Grid {
         return list;
     }
 
-    //Not used atm.
+    
     public int getXSize() {
         return this.xsize;
     }

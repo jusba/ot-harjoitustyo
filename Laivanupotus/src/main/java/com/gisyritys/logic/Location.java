@@ -20,6 +20,13 @@ public class Location {
         this.ship = null;
         this.guessed = false;
     }
+    /**
+    * Lisää tiettyyn ruudukon kohtaan laivan   
+    *
+    * @param   
+    * 
+    * @return true jos onnistuu, false jos ei
+    */
 
     public boolean addShip() {
         if (this.ship == null) {
@@ -30,6 +37,14 @@ public class Location {
         }
         return false;
     }
+    
+    /**
+    * Poistaa tietystä ruudukon kohdasta laivan 
+    *
+    * @param   
+    * 
+    * @return true jos onnistuu, false jos ei
+    */
 
     public boolean removeShip() {
         if (this.status) {
@@ -41,7 +56,7 @@ public class Location {
         return false;
 
     }
-
+    
     public void setGuessed() {
         this.guessed = true;
     }
