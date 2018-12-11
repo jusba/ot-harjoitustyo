@@ -13,7 +13,7 @@ import javafx.scene.layout.GridPane;
 
 /**
  *
- * @author Jussi
+ * Hoitaa tilastoihin liittyvien näkymien luonnin ja palautuksen
  */
 public class Stats {
 
@@ -25,6 +25,13 @@ public class Stats {
         botGrid = b;
 
     }
+    /**
+    * Luo tilastonäkymän pelin loputtua
+    *
+    * @param   
+    * 
+    * @return BorderPane, jossa edellisen pelin tilastoja
+    */
 
     public BorderPane getStatsPane() {
         BorderPane stats = new BorderPane();
@@ -37,6 +44,14 @@ public class Stats {
         return stats;
 
     }
+    
+    /**
+    * Luo tilastonäkymän tietokannassa olevista peleistä.
+    * Pelatut pelit asetetaan gridille uutuusjärjestyksessä
+    * @param   
+    * 
+    * @return GridPAne jossa tietoja peleistä
+    */
     public GridPane getDbStatsPane(ArrayList<int[]> games){
         GridPane stats = new GridPane();
         Label header = new Label("TIlastot");
@@ -84,6 +99,13 @@ public class Stats {
         
         
     }
+    /**
+    * Luo BorderPaneen sopivan version edellisen pelin tilastoista
+    *
+    * @param   
+    * 
+    * @return String[] jossa arvot BorderPaneen
+    */
 
     public String[] checkGrids() {
         int[] player = playerGrid.gridCheckerStats();
@@ -101,6 +123,14 @@ public class Stats {
 
         return list;
     }
+    
+    /**
+    * Luo BorderPaneen sopivan version kaikista tilastoista
+    *
+    * @param   
+    * 
+    * @return Int[] jossa arvot BorderPaneen
+    */
     public int[] checkGridsDB(){
         int[] player = playerGrid.gridCheckerStats();
         int[] bot = botGrid.gridCheckerStats();

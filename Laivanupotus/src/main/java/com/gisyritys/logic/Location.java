@@ -7,7 +7,7 @@ package com.gisyritys.logic;
 
 /**
  *
- * @author Jussi
+ * Kuvaa yhtä ruutua pelilaudalla
  */
 public class Location {
 

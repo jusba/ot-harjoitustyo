@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author Jussi
+ * Luo pelilautaa kuvaavan gridin ja hoitaa siihen liittyviä toimintoja
  */
 public class Grid {
 
@@ -28,6 +28,14 @@ public class Grid {
 
         }
     }
+    
+    /**
+    * Lisää laivan haluttuun kohtaan 
+    *
+    * @param int x, int y eli halutun ruudun sijainti
+    * 
+    * @return
+    */
 
     public void addShip(int x, int y) {
         if (!grid[x][y].hasShip()) {
@@ -35,6 +43,13 @@ public class Grid {
         }
 
     }
+    /**
+    * Poistaa laivan halutusta kohdasta
+    *
+    * @param   int x, int y, eli halutun ruudun sijainti.
+    * 
+    * @return
+    */
 
     public void removeShip(int x, int y) {
         if (grid[x][y].hasShip()) {
@@ -42,6 +57,15 @@ public class Grid {
 
         }
     }
+    
+    /**
+    * Luo tiekoneelle uuden satunnaisen gridin.
+    * Gridiin asetettavat laivat voivat koskea vain kulmista, eivätkä voi olla vierekkäin
+    *
+    * @param   
+    * 
+    * @return
+    */
 
     public void randomGrid() {
         int pieces = 1;
@@ -374,7 +398,14 @@ public class Grid {
         }
 
     }
-
+    /**
+    * Tarkistaa onko gridi tyhjä eli peli loppunut
+    *
+    * @param   
+    * 
+    * @return true tai false tilanteen mukaan.
+    */
+    
     public boolean checkGrid() {
         int shipAmount = 0;
         for (int i = 0; i < grid.length; i++) {
@@ -397,6 +428,14 @@ public class Grid {
 
         return false;
     }
+    
+    /**
+    * Tarkistaa tiettyyn gridiin liittyviä tilastoja
+    *
+    * @param   
+    * 
+    * @return int[] jossa mukana tilastoja
+    */
 
     public int[] gridCheckerStats() {
         int shipAmount = 0;

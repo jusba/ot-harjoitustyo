@@ -22,7 +22,7 @@ import javafx.scene.paint.Paint;
 
 /**
  *
- * @author Jussi
+ * Hoitaa pelaajan pelaamiseen liittyvät näkymät
  */
 public class Game {
 
@@ -36,7 +36,15 @@ public class Game {
         this.gameOn = true;
 
     }
-
+    
+    /**
+    * Tuo pelaajalle pelattavan version tietokoneen pelilaudasta.
+    * Ruudut ovat klikattavissa ja näin tuhottavissa.
+    *
+    * @param   
+    * 
+    * @return Klikattavan BorderPane version tietokonepelaajan laudasta
+    */
     public BorderPane getGame() {
         BorderPane screen = new BorderPane();
         Label type = new Label("Peli käynnissä");
@@ -118,22 +126,7 @@ public class Game {
         }
 
         System.out.println("------");
-        //Bot code wip
-        //Just for checking that the random grid works fine
-//        GridPane botPane = new GridPane();
-//        Grid bot = new Grid(this.grid.getXSize(), this.grid.getYSize());
-//        bot.randomGrid();
-//        for (int x = 0; x <= bot.getGrid().length - 1; x++) {
-//            for (int y = 0; y <= bot.getGrid()[x].length - 1; y++) {
-//                Label button = new Label("~~");
-//                if (bot.getGrid()[x][y].hasShip()) {
-//                    button = new Label("[][]");
-//                }
-//                botPane.add(button, x, y);
-//            }
-//        }
-//        //Just for checking that the random grid works fine                
-
+        
         Label keski = new Label("|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |");
 
         screen.setLeft(pane);

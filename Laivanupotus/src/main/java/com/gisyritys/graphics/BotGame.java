@@ -19,7 +19,7 @@ import javafx.scene.layout.GridPane;
 
 /**
  *
- * @author Jussi
+ * Hoitaa tietokoneen pelaamiseen liittyvät näkymät
  */
 public class BotGame {
 
@@ -31,7 +31,15 @@ public class BotGame {
         this.grid = g;
         this.random = new Random();
     }
-
+    /**
+    * Suorittaa tietokonepelaajaan liittyvät toiminnot pelaajan pelilaudalla.
+    * Tuo aina päivitetyn näkymän pelaajan pelilaudasta tietokonepelaajan valinnan jälkeen
+    *
+    * @param   
+    * 
+    * @return Tietokoneen liikkeitä pelaajan pelilaudalla kuvaava GridPane
+    */
+    
     public GridPane play() {
 
         GridPane pane = new GridPane();
@@ -99,7 +107,14 @@ public class BotGame {
 
         return pane;
     }
-
+    /**
+    * Tuo pelaajan pelilaudan, ennenkuin kumpikaan on valinnut ensimmäisiä ruutujaan.
+    *
+    * @param   
+    * 
+    * @return Pelaajan pelilautaa kuvaava GridPane ennenkuin kumpikaan valinnut ruutuja
+    */
+    
     public GridPane startGrid() {
         GridPane pane = new GridPane();
 
@@ -140,12 +155,24 @@ public class BotGame {
     public Grid getGrid() {
         return this.grid;
     }
-
+    /**
+    * Valitsee x arvon
+    *   
+    * @param   
+    * 
+    * @return SAtunnainen x arvo kentän koon mukaan
+    */
     public int chooseX() {
         int x = random.nextInt(this.grid.getXSize());
         return x;
     }
-
+    /**
+    * Valitsee y arvon
+    *
+    * @param   
+    * 
+    * @return Satunnainen y arvo kentän koon mukaan
+    */
     public int chooseY() {
         int y = random.nextInt(this.grid.getYSize());
         return y;

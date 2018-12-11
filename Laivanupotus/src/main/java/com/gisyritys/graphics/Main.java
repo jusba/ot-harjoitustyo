@@ -20,7 +20,8 @@ import javafx.scene.layout.GridPane;
 
 /**
  *
- * @author Jussi
+ * 
+ * Ohjelman pääluokka, suorittaa graafisten luokkien asettelun
  */
 public class Main extends Application {
 

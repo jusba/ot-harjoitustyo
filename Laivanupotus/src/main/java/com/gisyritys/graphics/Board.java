@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Jussi
+ * Hoitaa pelaajan oman laudan asetteluun liittyvän näkymän hallinnan
  */
 public class Board {
 
@@ -48,7 +48,14 @@ public class Board {
         
         return this.grid;
     }
-
+    /**
+    * Luo pelaajan laivojen asetteluun liittyvän näkymän
+    * Näkymässä pelaaja voi päivittää omaa gridiää, eli lisätä ja poistaa siltä laivoja.
+    *
+    * @param   
+    * 
+    * @return BorderPane, jossa pelaaja voi asettaa laivat
+    */
     public BorderPane boardScene() {
         BorderPane screen = new BorderPane();
         

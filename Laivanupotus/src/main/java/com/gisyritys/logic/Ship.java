@@ -7,7 +7,7 @@ package com.gisyritys.logic;
 
 /**
  *
- * @author Jussi
+ * Kuvaa ruudussa olevaa laivaa
  */
 public class Ship {
 
