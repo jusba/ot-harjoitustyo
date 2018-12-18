@@ -113,6 +113,10 @@ public class Game {
                                 type.setText("Sinä voitit!");
                                 gameOn = bot.checkGrid();
                             }
+                            if (!grid.checkGrid() && !bot.checkGrid()){
+                                type.setText("Tasapeli!");
+                                gameOn = grid.checkGrid();
+                            }
 
                         }
 

@@ -24,6 +24,7 @@ public class Grid {
     private Boolean test;
     private int testiX;
     private int testiY;
+    private int prevDir;
 
     public Grid(int x, int y) {
         this.xsize = x;
@@ -356,10 +357,10 @@ public class Grid {
         return this.grid[x][y];
     }
     
-    public int[] chooseXYForBot(int x, int y, ArrayList<int[]> previous){
+    public int[] chooseXYForBot(int x, int y, int dir){
         int coords[] = new int[3];  
         
-        int d = 0;
+        int d = dir;
         boolean guess = false;
         while(d < 4){
             if(d == 0){
@@ -371,13 +372,13 @@ public class Grid {
             }
             if(d == 1){
                 // east
-                if(x + 1 >= 0){
+                if(x + 1 <= this.xsize -1){
                     guess = checkLocation(x+1, y); 
                 }
             }
             if(d == 2){
                 // south
-                if(y + 1 >= 0){
+                if(y + 1 <= this.ysize -1){
                     guess = checkLocation(x, y+1); 
                 }
             }
@@ -389,6 +390,7 @@ public class Grid {
             }
             if(guess){
                 break;
+                
             }
             d ++;
         }
@@ -396,14 +398,17 @@ public class Grid {
         if(!guess){
             coords[0] = random.nextInt(10);
             coords[1] = random.nextInt(10);
-            coords[2] = 1;
+            coords[2] = d;
             return coords;
         }
-        
+        this.prevDir = d;
+        if(this.prevDir > 3){
+            this.prevDir = 0;
+        }
         return coordsMaker(x, y, d);
     }
     public int[] coordsMaker(int x, int y, int d){
-        int coords[] = new int[2];
+        int coords[] = new int[3];
         if(d == 0){
             coords[0] = x;
             coords[1] = y-1;
@@ -424,9 +429,13 @@ public class Grid {
             coords[1] = y;
             
         }
+        coords[2] = d;
         return coords;
                 
         
+    }
+    public int getPrevDir(){
+        return this.prevDir;
     }
     
     

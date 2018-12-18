@@ -30,6 +30,12 @@ public class BotGame {
     int previousX;
     int previousY;
     ArrayList<int[]> previous;
+    int count;
+    int dir;
+    int startX;
+    int startY;
+           
+    
 
     public BotGame(Grid g) {
 
@@ -39,6 +45,8 @@ public class BotGame {
         this.previousX = 0;
         this.previousY = 0;
         this.previous = new ArrayList<int[]>();
+        this.count = 0;
+        this.dir = 0;
         
         
     }
@@ -52,15 +60,22 @@ public class BotGame {
     */
     
     public GridPane play() {
-
+        
         GridPane pane = new GridPane();
+        int[] cXY= new int[3];
         int xCoord = chooseX();
         int yCoord = chooseY();
-        if(this.hit){
-            int[] coords = this.grid.chooseXYForBot(previousX, previousY, previous);
-            xCoord = coords[0];
-            yCoord = coords[1];
+        if(this.count > 0 && this.count < 5){
+            cXY = this.grid.chooseXYForBot(this.previousX, this.previousY, this.dir);
+            xCoord = cXY[0];
+            yCoord = cXY[1];
         }
+        if(this.count >= 5){
+            this.count = 0; 
+            this.hit = false;
+            this.dir = 0;
+        }
+        
         int[] coords = new int[2];
         coords[0] = xCoord;
         coords[1] = yCoord;
@@ -85,7 +100,12 @@ public class BotGame {
                         Background backgroundGuessed = new Background(bGuessed);
                         button.setBackground(backgroundGuessed);
                         this.grid.getGrid()[x][y].setGuessed();
-                        this.hit = false;
+                        if(this.count == 0){
+                            this.dir --;
+                        }
+                        this.dir ++;                        
+                        
+                        
                         match = false;
 
                     }
@@ -97,8 +117,16 @@ public class BotGame {
                             button.setBackground(backgroundSink);
                             grid.getLocation(x, y).getShip().sinkShip();
                             this.grid.getGrid()[x][y].setGuessed();
+                            if(this.hit){
+                                count = 0;
+                                this.dir = this.grid.getPrevDir();
+                            }
                             this.hit = true;
+                            this.startX = xCoord;
+                            this.startY = yCoord;
                             match = false;
+                            
+                            
 
                         } else {
                             BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
@@ -119,6 +147,10 @@ public class BotGame {
 
                 }
             }
+            if(this.hit){
+                this.count ++;
+            }
+            
             if (!match) {
 
                 break;
@@ -127,8 +159,16 @@ public class BotGame {
             xCoord = chooseX();
             yCoord = chooseY();
         }
+
         this.previousX = xCoord;
         this.previousY = yCoord;
+        
+        if(this.hit){
+            this.previousX = startX;
+            this.previousY = startY;
+                  
+        }
+        
         return pane;
     }
     /**
