@@ -5,6 +5,7 @@
  */
 package com.gisyritys.logic;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -355,6 +356,83 @@ public class Grid {
         return this.grid[x][y];
     }
     
+    public int[] chooseXYForBot(int x, int y, ArrayList<int[]> previous){
+        int coords[] = new int[2];  
+        
+        int d = 0;
+        boolean guess = false;
+        while(d < 4){
+            if(d == 0){
+                // north
+                if(y - 1 >= 0){
+                    guess = checkLocation(x, y-1); 
+                }
+                
+            }
+            if(d == 1){
+                // east
+                if(x + 1 >= 0){
+                    guess = checkLocation(x+1, y); 
+                }
+            }
+            if(d == 2){
+                // south
+                if(y + 1 >= 0){
+                    guess = checkLocation(x, y+1); 
+                }
+            }
+            if(d == 3){
+                // west
+                if(x -1 >= 0){
+                    guess = checkLocation(x-1, y); 
+                }
+            }
+            if(guess){
+                break;
+            }
+            d ++;
+        }
+        
+        if(!guess){
+            coords[0] = random.nextInt(10);
+            coords[1] = random.nextInt(10);
+            return coords;
+        }
+        
+        return coordsMaker(x, y, d);
+    }
+    public int[] coordsMaker(int x, int y, int d){
+        int coords[] = new int[2];
+        if(d == 0){
+            coords[0] = x;
+            coords[1] = y-1;
+                  
+        }
+        if(d == 1){
+            coords[0] = x +1;
+            coords[1] = y;
+            
+        }
+        if(d == 2){
+            coords[0] = x;
+            coords[1] = y +1;
+            
+        }
+        if(d == 3){
+            coords[0] = x-1; 
+            coords[1] = y;
+            
+        }
+        return coords;
+                
+        
+    }
     
-
+    
+    public boolean checkLocation(int x, int y){
+        if(!this.grid[x][y].getGuessed()){
+            return true;
+        }
+        return false;
+    }
 }

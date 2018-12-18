@@ -6,6 +6,7 @@
 package com.gisyritys.graphics;
 
 import com.gisyritys.logic.Grid;
+import java.util.ArrayList;
 import java.util.Random;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -25,11 +26,21 @@ public class BotGame {
 
     Grid grid;
     Random random;
+    Boolean hit;
+    int previousX;
+    int previousY;
+    ArrayList<int[]> previous;
 
     public BotGame(Grid g) {
 
         this.grid = g;
         this.random = new Random();
+        this.hit = false;
+        this.previousX = 0;
+        this.previousY = 0;
+        this.previous = new ArrayList<int[]>();
+        
+        
     }
     /**
     * Suorittaa tietokonepelaajaan liittyvät toiminnot pelaajan pelilaudalla.
@@ -45,6 +56,15 @@ public class BotGame {
         GridPane pane = new GridPane();
         int xCoord = chooseX();
         int yCoord = chooseY();
+        if(this.hit){
+            int[] coords = this.grid.chooseXYForBot(previousX, previousY, previous);
+            xCoord = coords[0];
+            yCoord = coords[1];
+        }
+        int[] coords = new int[2];
+        coords[0] = xCoord;
+        coords[1] = yCoord;
+        this.previous.add(coords);
         boolean match = true;
         while (true) {
             for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
@@ -65,6 +85,7 @@ public class BotGame {
                         Background backgroundGuessed = new Background(bGuessed);
                         button.setBackground(backgroundGuessed);
                         this.grid.getGrid()[x][y].setGuessed();
+                        this.hit = false;
                         match = false;
 
                     }
@@ -76,6 +97,7 @@ public class BotGame {
                             button.setBackground(backgroundSink);
                             grid.getLocation(x, y).getShip().sinkShip();
                             this.grid.getGrid()[x][y].setGuessed();
+                            this.hit = true;
                             match = false;
 
                         } else {
@@ -101,10 +123,12 @@ public class BotGame {
 
                 break;
             }
+            
             xCoord = chooseX();
             yCoord = chooseY();
         }
-
+        this.previousX = xCoord;
+        this.previousY = yCoord;
         return pane;
     }
     /**
@@ -163,6 +187,7 @@ public class BotGame {
     * @return SAtunnainen x arvo kentän koon mukaan
     */
     public int chooseX() {
+        
         int x = random.nextInt(this.grid.getXSize());
         return x;
     }
@@ -174,6 +199,7 @@ public class BotGame {
     * @return Satunnainen y arvo kentän koon mukaan
     */
     public int chooseY() {
+        
         int y = random.nextInt(this.grid.getYSize());
         return y;
     }
