@@ -213,6 +213,15 @@ public class Grid {
         }
 
     }
+    
+    /**
+    * Tarkistaa randomgridiä varten ruutuja ja asettaa satunnaiset arvot tarviattessa.
+    * 
+    *
+    * @param Boolean passed, joka kertoo mitä kohtia käydään läpi
+    * 
+    * @return - 
+    */
     public void checkDirections(Boolean passed){
         if (this.grid[testiX][testiY].hasShip() && passed) {
             gridRandomizerValueRandomizer(true);
@@ -243,6 +252,13 @@ public class Grid {
             }
         }
     }
+    /**
+    * Asettaa uusia satunnaisia arvoja random gridiä varten
+    *
+    * @param Boolean tester joka kertoo asetetaanko uusi testiarvo 
+    * 
+    * @return - 
+    */
     
     public void gridRandomizerValueRandomizer(Boolean tester){
         this.dir = random.nextInt(4);
