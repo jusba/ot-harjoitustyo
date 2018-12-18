@@ -357,7 +357,7 @@ public class Grid {
     }
     
     public int[] chooseXYForBot(int x, int y, ArrayList<int[]> previous){
-        int coords[] = new int[2];  
+        int coords[] = new int[3];  
         
         int d = 0;
         boolean guess = false;
@@ -396,6 +396,7 @@ public class Grid {
         if(!guess){
             coords[0] = random.nextInt(10);
             coords[1] = random.nextInt(10);
+            coords[2] = 1;
             return coords;
         }
         
