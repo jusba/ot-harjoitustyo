@@ -17,7 +17,7 @@ Ohjelmassa on viisi erilaista näkymää.
 - Pelinjälkeiset tilastot valikko
 - Tilastot valikko
 
-Jokainen näistä on toteutettu omana Scene oliona. Käyttöliittymässä pääsee liikkumaan ympäri takaisin päävalikkoon, joten ohjelman sulkeminen esimerkiksi pelien välissä ei ole välttämätöntä. Sovelluksen käyttöliittymä ja sovelluslogiikka on eriytetty toisistaan, mutta ohjelman ollessa hyvin paljon graafiseen toimintaan perustuva, tapahtuu osa toiminnasta myös graafisissa luokissa. Tätä korjaillaan mahdollisesti aikataulun sitä salliessa.
+Jokainen näistä on toteutettu omana Scene oliona. Käyttöliittymässä pääsee liikkumaan ympäri takaisin päävalikkoon, joten ohjelman sulkeminen esimerkiksi pelien välissä ei ole välttämätöntä. Sovelluksen käyttöliittymä ja sovelluslogiikka on eriytetty toisistaan, mutta ohjelman ollessa hyvin paljon graafiseen toimintaan perustuva, tapahtuu osa toiminnasta myös graafisissa luokissa. Tämä on yksi ohjelman pahimmista heikkouksista.
 
 ## Tietojen tallennus 
 Luokka DBStats hoitaa tietojen hakemisen ja viemisen tietokantaan. Tietokantatiedosto stats.db luodaan ohjelman ensimmäiselle käyttökerralla. Se sijaintsee samassa kansiossa ohjelman suorittavan Jar tiedoston kanssa.  
@@ -58,7 +58,7 @@ Pelin toiminta on toteutettu Game luokan sisällä, mikä hakee BotGame luokasta
 
 #### Sovelluslogiikan ja graafisen puolen eriyttämisen ongelmat  
 
-Ohjelman graafisissa luokissa toteutetaan liikaa sovelluslogiikan toimintaa. Sovelluslogiikan pitäisi tapahtua useammassa omassa luokassaan sen sijaan, että sitä on tungettu graafisiin luokkiin. Etenkin Game ja BotGame luokat pahimpia loukkaajia tässä asiassa. Ohjelman rakenne olisi pitänyt suunnitella paremmin alunperin, jotta tälläisiltä ongelmilta vältyttäisiin.  
+Ohjelman graafisissa luokissa toteutetaan liikaa sovelluslogiikan toimintaa. Sovelluslogiikan pitäisi tapahtua useammassa omassa luokassaan sen sijaan, että sitä on tungettu graafisiin luokkiin. Etenkin Game ja BotGame luokat ovat pahimpia loukkaajia tässä asiassa. Ohjelman rakenne olisi pitänyt suunnitella paremmin alunperin, jotta tälläisiltä ongelmilta vältyttäisiin.  
 
 #### Rakenteen ongelmat
 
