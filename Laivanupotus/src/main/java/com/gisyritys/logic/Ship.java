@@ -11,7 +11,7 @@ package com.gisyritys.logic;
  */
 public class Ship {
 
-    private String tyyppi; // Not impelemnted yet
+    private String tyyppi;
     private Boolean status; //sink or not sink
 
     public Ship() {

@@ -215,10 +215,82 @@ public class GridTest {
         
     }
        
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void checkingCoordsForBotWorks(){
+        int[] list0 = grid.chooseXYForBot(5, 5, 0);
+        assertEquals(list0[0], 5);
+        assertEquals(list0[1], 4);
+        int[] list1 = grid.chooseXYForBot(1, 1, 1);
+        assertEquals(list1[0], 2);
+        assertEquals(list1[1], 1);
+        int[] list2 = grid.chooseXYForBot(2, 2, 2);
+        assertEquals(list2 instanceof int[], true);
+        assertEquals(grid.chooseXYForBot(2, 2, 2) instanceof int[], true);
+        assertEquals(list2[0], 2);
+        assertEquals(list2[1], 3);
+        int[] list3 = grid.chooseXYForBot(3, 3, 3);
+        assertEquals(list3[0], 2);
+        assertEquals(list3[1], 3);
+        int[] listFail = grid.chooseXYForBot(5, 5, 20);
+        assertEquals(listFail[0] < 10 && listFail[0] >= 0 , true);
+        assertEquals(listFail[1] < 10 && listFail[0] >= 0 , true);
+        int[] dir = grid.chooseXYForBot(5, 5, 2);
+        assertEquals(grid.getPrevDir(), 2);
+        
+    }
+    @Test
+    public void checkingAnotherDirectionCoordsForBotWorks(){
+        int[] list0 = grid.chooseAnotherDirectionForBot(5, 5, 0);
+        assertEquals(list0[0], 6);
+        assertEquals(list0[1], 5);
+        int[] list1 = grid.chooseAnotherDirectionForBot(1, 1, 1);
+        assertEquals(list1[0], 1);
+        assertEquals(list1[1], 2);
+        int[] list2 = grid.chooseAnotherDirectionForBot(2, 2, 2);
+        assertEquals(list2 instanceof int[], true);
+        assertEquals(grid.chooseAnotherDirectionForBot(2, 2, 2) instanceof int[], true);
+        assertEquals(list2[0], 1);
+        assertEquals(list2[1], 2);
+        int[] list3 = grid.chooseAnotherDirectionForBot(3, 3, 3);
+        assertEquals(list3[0], 3);
+        assertEquals(list3[1], 2);
+        int[] listFail = grid.chooseAnotherDirectionForBot(5, 5, 20);
+        assertEquals(listFail[0] < 10 && listFail[0] >= 0 , true);
+        assertEquals(listFail[1] < 10 && listFail[0] >= 0 , true);
+        int[] dir = grid.chooseAnotherDirectionForBot(5, 5, 2);
+        assertEquals(grid.getPrevDir(), 3);
+    }
+    @Test
+    public void newDirWorks(){
+        assertEquals(grid.newDir(0), 2);
+        assertEquals(grid.newDir(1), 3);
+        assertEquals(grid.newDir(2), 0);
+        assertEquals(grid.newDir(3), 1);
+        assertEquals(grid.newDir(20000), 1);
+    }
+    @Test
+    public void coordsMakerTest(){
+        int coords[] = grid.coordsMaker(5, 5, 0);
+        assertEquals(coords[0], 5);
+        assertEquals(coords[1], 4);
+        int coords1[] = grid.coordsMaker(1, 1, 1);
+        assertEquals(coords1[0], 2);
+        assertEquals(coords1[1], 1);
+        int coords2[] = grid.coordsMaker(2, 2, 2);
+        assertEquals(coords2[0], 2);
+        assertEquals(coords2[1], 3);
+        int coords3[] = grid.coordsMaker(3, 3, 3);
+        assertEquals(coords3[0], 2);
+        assertEquals(coords3[1], 3);
+    }
+    @Test
+    public void prevDirCheckerTesting(){
+        grid.prevDirChecker(2);
+        assertEquals(grid.getPrevDir(), 2);
+        grid.prevDirChecker(5);
+        assertEquals(grid.getPrevDir(), 0);
+    }
+    
+    
+   
 }

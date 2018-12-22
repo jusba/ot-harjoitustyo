@@ -36,10 +36,8 @@ public class BotGame {
     int startY;
     int saveX;
     int saveY;
-    
+
     Boolean check;
-           
-    
 
     public BotGame(Grid g) {
 
@@ -52,42 +50,41 @@ public class BotGame {
         this.count = 0;
         this.dir = 0;
         this.check = false;
-        
-        
-        
+
     }
+
     /**
-    * Suorittaa tietokonepelaajaan liittyvät toiminnot pelaajan pelilaudalla.
-    * Tuo aina päivitetyn näkymän pelaajan pelilaudasta tietokonepelaajan valinnan jälkeen
-    *
-    * @param   
-    * 
-    * @return Tietokoneen liikkeitä pelaajan pelilaudalla kuvaava GridPane
-    */
-    
+     * Suorittaa tietokonepelaajaan liittyvät toiminnot pelaajan pelilaudalla.
+     * Tuo aina päivitetyn näkymän pelaajan pelilaudasta tietokonepelaajan
+     * valinnan jälkeen
+     *
+     * @param
+     *
+     * @return Tietokoneen liikkeitä pelaajan pelilaudalla kuvaava GridPane
+     */
+
     public GridPane play() {
-        
+
         GridPane pane = new GridPane();
-        int[] cXY= new int[3];
+        int[] cXY = new int[3];
         int xCoord = chooseX();
         int yCoord = chooseY();
-        if(this.count > 0 && this.count < 5){
+        if (this.count > 0 && this.count < 5) {
             cXY = this.grid.chooseXYForBot(this.previousX, this.previousY, this.dir);
-            if(cXY[0] != saveX && cXY[1] != saveY && this.check ){
+            if (cXY[0] != saveX && cXY[1] != saveY && this.check) {
                 cXY = this.grid.chooseAnotherDirectionForBot(saveX, saveY, this.dir);
                 this.check = false;
-                
+
             }
             xCoord = cXY[0];
             yCoord = cXY[1];
         }
-        if(this.count >= 5){
-            this.count = 0; 
+        if (this.count >= 5) {
+            this.count = 0;
             this.hit = false;
             this.dir = 0;
         }
-        
-        
+
         boolean match = true;
         while (true) {
             for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
@@ -108,12 +105,11 @@ public class BotGame {
                         Background backgroundGuessed = new Background(bGuessed);
                         button.setBackground(backgroundGuessed);
                         this.grid.getGrid()[x][y].setGuessed();
-                        if(this.count == 0){
-                            this.dir --;
+                        if (this.count == 0) {
+                            this.dir--;
                         }
-                        this.dir ++;                        
-                        
-                        
+                        this.dir++;
+
                         match = false;
 
                     }
@@ -125,11 +121,11 @@ public class BotGame {
                             button.setBackground(backgroundSink);
                             grid.getLocation(x, y).getShip().sinkShip();
                             this.grid.getGrid()[x][y].setGuessed();
-                            if(this.hit){
+                            if (this.hit) {
                                 count = 0;
                                 this.dir = this.grid.getPrevDir();
                             }
-                            if(!this.hit){
+                            if (!this.hit) {
                                 this.saveX = xCoord;
                                 this.saveY = yCoord;
                             }
@@ -138,8 +134,6 @@ public class BotGame {
                             this.startY = yCoord;
                             match = false;
                             this.check = true;
-                            
-                            
 
                         } else {
                             BackgroundFill bShip = new BackgroundFill(javafx.scene.paint.Paint.valueOf("#40474d"), CornerRadii.EMPTY, Insets.EMPTY);
@@ -160,38 +154,41 @@ public class BotGame {
 
                 }
             }
-            if(this.hit){
-                this.count ++;
+            if (this.hit) {
+                this.count++;
             }
-            
+
             if (!match) {
 
                 break;
             }
-            
+
             xCoord = chooseX();
             yCoord = chooseY();
         }
 
         this.previousX = xCoord;
         this.previousY = yCoord;
-        
-        if(this.hit){
+
+        if (this.hit) {
             this.previousX = startX;
             this.previousY = startY;
-                  
+
         }
-        
+
         return pane;
     }
+
     /**
-    * Tuo pelaajan pelilaudan, ennenkuin kumpikaan on valinnut ensimmäisiä ruutujaan.
-    *
-    * @param   
-    * 
-    * @return Pelaajan pelilautaa kuvaava GridPane ennenkuin kumpikaan valinnut ruutuja
-    */
-    
+     * Tuo pelaajan pelilaudan, ennenkuin kumpikaan on valinnut ensimmäisiä
+     * ruutujaan.
+     *
+     * @param
+     *
+     * @return Pelaajan pelilautaa kuvaava GridPane ennenkuin kumpikaan valinnut
+     * ruutuja
+     */
+
     public GridPane startGrid() {
         GridPane pane = new GridPane();
 
@@ -232,28 +229,31 @@ public class BotGame {
     public Grid getGrid() {
         return this.grid;
     }
+
     /**
-    * Valitsee x arvon
-    *   
-    * @param   
-    * 
-    * @return SAtunnainen x arvo kentän koon mukaan
-    */
+     * Valitsee x arvon
+     *
+     * @param
+     *
+     * @return SAtunnainen x arvo kentän koon mukaan
+     */
     public int chooseX() {
-        
+
         int x = random.nextInt(this.grid.getXSize());
         return x;
     }
+
     /**
-    * Valitsee y arvon
-    *
-    * @param   
-    * 
-    * @return Satunnainen y arvo kentän koon mukaan
-    */
+     * Valitsee y arvon
+     *
+     * @param
+     *
+     * @return Satunnainen y arvo kentän koon mukaan
+     */
     public int chooseY() {
-        
+
         int y = random.nextInt(this.grid.getYSize());
         return y;
     }
+
 }

@@ -12,19 +12,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 /**
- * 
- * Luokka tietokannan kanssa toimintaa, mahdollistaa luonnin, lisäyksen ja tiedon hakemisen
+ *
+ * Luokka tietokannan kanssa toimintaa, mahdollistaa luonnin, lisäyksen ja
+ * tiedon hakemisen
  */
 public class DBStats {
+
     /**
-    * Luo tietokannan ja siihen taulun
-    *
-    * @param   
-    * 
-    * @return
-    */
+     * Luo tietokannan ja siihen taulun
+     *
+     * @param
+     *
+     * @return
+     */
     public void createDB() {
         String url = "jdbc:sqlite:stats.db";
         Statement stmt = null;
@@ -43,15 +44,16 @@ public class DBStats {
             System.out.println(ex.getMessage());
         }
     }
+
     /**
-    * Lisää jotain tietokantaan 
-    * Eli periaatteessa siis viimeksi pelatun pelin tiedot
-    *
-    * @param   int[] joka sisältää pelin tiedot
-    * 
-    * @return
-    */
-    
+     * Lisää jotain tietokantaan Eli periaatteessa siis viimeksi pelatun pelin
+     * tiedot
+     *
+     * @param int[] joka sisältää pelin tiedot
+     *
+     * @return
+     */
+
     public void addToDB(int[] list) {
         String url = "jdbc:sqlite:stats.db";
         Statement stmt = null;
@@ -70,13 +72,15 @@ public class DBStats {
             System.out.println(ex.getMessage());
         }
     }
+
     /**
-    * Hakee kaikkien pelien tiedot tietokannasta
-    *
-    * @param   
-    * 
-    * @return ArrayList<int[]> Jossa kaikki pelit arraylistissä ja niiden tarkemmat tiedot Arrayssä
-    */
+     * Hakee kaikkien pelien tiedot tietokannasta
+     *
+     * @param
+     *
+     * @return ArrayList<int[]> Jossa kaikki pelit arraylistissä ja niiden
+     * tarkemmat tiedot Arrayssä
+     */
     public ArrayList<int[]> getDB() {
         String url = "jdbc:sqlite:stats.db";
         Statement stmt = null;
@@ -102,7 +106,7 @@ public class DBStats {
                 list[3] = rs.getInt("airemaining");
                 list[4] = rs.getInt("turns");
                 games.add(list);
-                System.out.println(list[0] + ":" + list[1] + ":" + list[2] + ":" + list[3] + ":" + list[4]);
+                
             }
 
         } catch (SQLException ex) {

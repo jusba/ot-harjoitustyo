@@ -25,13 +25,14 @@ public class Stats {
         botGrid = b;
 
     }
+
     /**
-    * Luo tilastonäkymän pelin loputtua
-    *
-    * @param   
-    * 
-    * @return BorderPane, jossa edellisen pelin tilastoja
-    */
+     * Luo tilastonäkymän pelin loputtua
+     *
+     * @param
+     *
+     * @return BorderPane, jossa edellisen pelin tilastoja
+     */
 
     public BorderPane getStatsPane() {
         BorderPane stats = new BorderPane();
@@ -44,15 +45,16 @@ public class Stats {
         return stats;
 
     }
-    
+
     /**
-    * Luo tilastonäkymän tietokannassa olevista peleistä.
-    * Pelatut pelit asetetaan gridille uutuusjärjestyksessä
-    * @param   
-    * 
-    * @return GridPAne jossa tietoja peleistä
-    */
-    public GridPane getDbStatsPane(ArrayList<int[]> games){
+     * Luo tilastonäkymän tietokannassa olevista peleistä. Pelatut pelit
+     * asetetaan gridille uutuusjärjestyksessä
+     *
+     * @param
+     *
+     * @return GridPAne jossa tietoja peleistä
+     */
+    public GridPane getDbStatsPane(ArrayList<int[]> games) {
         GridPane stats = new GridPane();
         Label header = new Label("TIlastot");
         Label header2 = new Label("Viimeiset 50 peliä:");
@@ -63,49 +65,47 @@ public class Stats {
         Label ai = new Label("Vihollisen alunperin ");
         Label aiE = new Label("Vihollisen lopuksi ");
         Label t = new Label("Käytetyt vuorot ");
-        stats.add(own,0,4);
-        stats.add(ownE,1,4);
-        stats.add(ai,2,4);
-        stats.add(aiE,3,4);
-        stats.add(t,4,4);
-        
-        
+        stats.add(own, 0, 4);
+        stats.add(ownE, 1, 4);
+        stats.add(ai, 2, 4);
+        stats.add(aiE, 3, 4);
+        stats.add(t, 4, 4);
+
         int size = games.size();
         int x = 0;
         int y = 5;
         int limit = 0;
-        for(int i = 0; i< games.size(); i++){
-            if(limit < 50){
-                int[] game = games.get(size -1);
-                Label first = new Label("           " +(Integer.toString(game[0])));
-                Label second = new Label("           " +(Integer.toString(game[1])));
-                Label third= new Label("           " +(Integer.toString(game[2])));
-                Label fourth = new Label("           " +(Integer.toString(game[3])));
-                Label fifth = new Label("           " +(Integer.toString(game[4])));
+        for (int i = 0; i < games.size(); i++) {
+            if (limit < 50) {
+                int[] game = games.get(size - 1);
+                Label first = new Label("           " + (Integer.toString(game[0])));
+                Label second = new Label("           " + (Integer.toString(game[1])));
+                Label third = new Label("           " + (Integer.toString(game[2])));
+                Label fourth = new Label("           " + (Integer.toString(game[3])));
+                Label fifth = new Label("           " + (Integer.toString(game[4])));
                 stats.add(first, x, y);
-                stats.add(second, x+1, y);
-                stats.add(third, x+2, y);
-                stats.add(fourth, x+3, y);
-                stats.add(fifth, x+4, y);
-                y ++;
-                size --;
-                limit ++;
+                stats.add(second, x + 1, y);
+                stats.add(third, x + 2, y);
+                stats.add(fourth, x + 3, y);
+                stats.add(fifth, x + 4, y);
+                y++;
+                size--;
+                limit++;
             }
-            
+
         }
-        
-        
+
         return stats;
-        
-        
+
     }
+
     /**
-    * Luo BorderPaneen sopivan version edellisen pelin tilastoista
-    *
-    * @param   
-    * 
-    * @return String[] jossa arvot BorderPaneen
-    */
+     * Luo BorderPaneen sopivan version edellisen pelin tilastoista
+     *
+     * @param
+     *
+     * @return String[] jossa arvot BorderPaneen
+     */
 
     public String[] checkGrids() {
         int[] player = playerGrid.gridCheckerStats();
@@ -123,15 +123,15 @@ public class Stats {
 
         return list;
     }
-    
+
     /**
-    * Luo BorderPaneen sopivan version kaikista tilastoista
-    *
-    * @param   
-    * 
-    * @return Int[] jossa arvot BorderPaneen
-    */
-    public int[] checkGridsDB(){
+     * Luo BorderPaneen sopivan version kaikista tilastoista
+     *
+     * @param
+     *
+     * @return Int[] jossa arvot BorderPaneen
+     */
+    public int[] checkGridsDB() {
         int[] player = playerGrid.gridCheckerStats();
         int[] bot = botGrid.gridCheckerStats();
 

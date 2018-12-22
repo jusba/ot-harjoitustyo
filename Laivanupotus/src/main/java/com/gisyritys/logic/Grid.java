@@ -41,52 +41,48 @@ public class Grid {
         this.startY = random.nextInt(this.ysize);
         this.dir = random.nextInt(4);
         this.test = false;
-       
-        
-    }
-    
-    /**
-    * Lisää laivan haluttuun kohtaan 
-    *
-    * @param int x, int y eli halutun ruudun sijainti
-    * 
-    * @return
-    */
 
+    }
+
+    /**
+     * Lisää laivan haluttuun kohtaan
+     *
+     * @param int x, int y eli halutun ruudun sijainti
+     *
+     * @return
+     */
     public void addShip(int x, int y) {
         if (!grid[x][y].hasShip()) {
             grid[x][y].addShip();
         }
 
     }
-    /**
-    * Poistaa laivan halutusta kohdasta
-    *
-    * @param   int x, int y, eli halutun ruudun sijainti.
-    * 
-    * @return
-    */
 
+    /**
+     * Poistaa laivan halutusta kohdasta
+     *
+     * @param int x, int y, eli halutun ruudun sijainti.
+     *
+     * @return
+     */
     public void removeShip(int x, int y) {
         if (grid[x][y].hasShip()) {
             grid[x][y].removeShip();
 
         }
     }
-    
-    /**
-    * Luo tiekoneelle uuden satunnaisen gridin.
-    * Gridiin asetettavat laivat voivat koskea vain kulmista, eivätkä voi olla vierekkäin
-    *
-    * @param   
-    * 
-    * @return
-    */
 
+    /**
+     * Luo tiekoneelle uuden satunnaisen gridin. Gridiin asetettavat laivat
+     * voivat koskea vain kulmista, eivätkä voi olla vierekkäin
+     *
+     * @param
+     *
+     * @return
+     */
     public void randomGrid() {
         int pieces = 1;
 
-        
         while (true) {
 
             boolean passed = true;
@@ -142,7 +138,7 @@ public class Grid {
                         continue;
                     }
                     // Adding ships
-                    
+
                     passed = false;
                     this.grid[startX][startY].addShip();
                     startX++;
@@ -170,7 +166,7 @@ public class Grid {
                         continue;
                     }
                     // Adding ships
-                   
+
                     passed = false;
                     this.grid[startX][startY].addShip();
                     startY++;
@@ -183,9 +179,9 @@ public class Grid {
                         continue;
                     }
                     for (int x = 0; x < pieces; x++) {
-                        
+
                         checkDirections(passed);
-                        
+
                         if (passed) {
                             testiX--;
                         }
@@ -198,7 +194,7 @@ public class Grid {
                         continue;
                     }
                     // Adding ships
-                   
+
                     passed = false;
                     this.grid[startX][startY].addShip();
                     startX--;
@@ -215,68 +211,66 @@ public class Grid {
         }
 
     }
-    
+
     /**
-    * Tarkistaa randomgridiä varten ruutuja ja asettaa satunnaiset arvot tarviattessa.
-    * 
-    *
-    * @param Boolean passed, joka kertoo mitä kohtia käydään läpi
-    * 
-    * @return - 
-    */
-    public void checkDirections(Boolean passed){
+     * Tarkistaa randomgridiä varten ruutuja ja asettaa satunnaiset arvot
+     * tarviattessa.
+     *
+     *
+     * @param Boolean passed, joka kertoo mitä kohtia käydään läpi
+     *
+     * @return -
+     */
+    public void checkDirections(Boolean passed) {
         if (this.grid[testiX][testiY].hasShip() && passed) {
             gridRandomizerValueRandomizer(true);
 
         }
-        if (testiX - 1 >= 0) {
-            if (this.grid[testiX - 1][testiY].hasShip() && passed) {
-                gridRandomizerValueRandomizer(true);
+        if (testiX - 1 >= 0 && this.grid[testiX - 1][testiY].hasShip() && passed) {
 
-            }
+            gridRandomizerValueRandomizer(true);
+
         }
-        if (testiX + 1 <= this.xsize - 1) {
-            if (this.grid[testiX + 1][testiY].hasShip() && passed) {
-                gridRandomizerValueRandomizer(true);
+        if (testiX + 1 <= this.xsize - 1 && this.grid[testiX + 1][testiY].hasShip() && passed) {
 
-            }
+            gridRandomizerValueRandomizer(true);
+
         }
-        if (testiY - 1 >= 0) {
-            if (this.grid[testiX][testiY - 1].hasShip() && passed) {
-                gridRandomizerValueRandomizer(true);
+        if (testiY - 1 >= 0 && this.grid[testiX][testiY - 1].hasShip() && passed) {
 
-            }
+            gridRandomizerValueRandomizer(true);
+
         }
-        if (testiY + 1 <= this.ysize - 1) {
-            if (this.grid[testiX][testiY + 1].hasShip() && passed) {
-                gridRandomizerValueRandomizer(true);
+        if (testiY + 1 <= this.ysize - 1 && this.grid[testiX][testiY + 1].hasShip() && passed) {
 
-            }
+            gridRandomizerValueRandomizer(true);
+
         }
     }
+
     /**
-    * Asettaa uusia satunnaisia arvoja random gridiä varten
-    *
-    * @param Boolean tester joka kertoo asetetaanko uusi testiarvo 
-    * 
-    * @return - 
-    */
-    
-    public void gridRandomizerValueRandomizer(Boolean tester){
+     * Asettaa uusia satunnaisia arvoja random gridiä varten
+     *
+     * @param Boolean tester joka kertoo asetetaanko uusi testiarvo
+     *
+     * @return -
+     */
+    public void gridRandomizerValueRandomizer(Boolean tester) {
         this.dir = random.nextInt(4);
         this.startX = random.nextInt(this.xsize);
         this.startY = random.nextInt(this.ysize);
-        if (tester){
+        if (tester) {
             this.test = true;
         }
     }
+
     /**
-    * Tarkistaa onko gridi tyhjä eli peli loppunut
-    *
-    * @param   
-    * 
-    * @return true tai false tilanteen mukaan.
-    */
+     * Tarkistaa onko gridi tyhjä eli peli loppunut
+     *
+     * @param
+     *
+     * @return true tai false tilanteen mukaan.
+     */
     public boolean checkGrid() {
         int shipAmount = 0;
         for (int i = 0; i < grid.length; i++) {
@@ -291,7 +285,7 @@ public class Grid {
             }
 
         }
-        System.out.println(shipAmount);
+
         if (shipAmount > 0) {
 
             return true;
@@ -299,16 +293,16 @@ public class Grid {
 
         return false;
     }
-    
-    /**
-    * Tarkistaa tiettyyn gridiin liittyviä tilastoja
-    *
-    * @param   
-    * 
-    * @return int[] jossa mukana tilastoja
-    */
 
+    /**
+     * Tarkistaa tiettyyn gridiin liittyviä tilastoja
+     *
+     * @param
+     *
+     * @return int[] jossa mukana tilastoja
+     */
     public int[] gridCheckerStats() {
+        int[] list = new int[4];
         int shipAmount = 0;
         int floatAmount = 0;
         int seaAmount = 0;
@@ -332,7 +326,7 @@ public class Grid {
             }
 
         }
-        int[] list = new int[4];
+
         list[0] = shipAmount;
         list[1] = floatAmount;
         list[2] = seaAmount;
@@ -340,7 +334,6 @@ public class Grid {
         return list;
     }
 
-    
     public int getXSize() {
         return this.xsize;
     }
@@ -356,153 +349,210 @@ public class Grid {
     public Location getLocation(int x, int y) {
         return this.grid[x][y];
     }
-    
-    public int[] chooseXYForBot(int x, int y, int dir){
-        int coords[] = new int[3];  
-        
+
+    /**
+     * Valitsee tietokoneelle seuraavan ruudun, jos tietokone on osunut
+     * edellisellä johonkin
+     *
+     * @param int x, int y, int dir, edelliset xy kordinaatit ja suunta
+     *
+     * @return int[] lista seuraavista kordinaateista
+     */
+    public int[] chooseXYForBot(int x, int y, int dir) {
+        int coords[] = new int[3];
+
         int d = dir;
         boolean guess = false;
-        while(d < 4){
-            if(d == 0){
+        while (d < 4) {
+            if (d == 0) {
                 // north
-                if(y - 1 >= 0){
-                    guess = checkLocation(x, y-1); 
+                if (y - 1 >= 0) {
+                    guess = checkLocation(x, y - 1);
                 }
-                
+
             }
-            if(d == 1){
+            if (d == 1) {
                 // east
-                if(x + 1 <= this.xsize -1){
-                    guess = checkLocation(x+1, y); 
+                if (x + 1 <= this.xsize - 1) {
+                    guess = checkLocation(x + 1, y);
                 }
             }
-            if(d == 2){
+            if (d == 2) {
                 // south
-                if(y + 1 <= this.ysize -1){
-                    guess = checkLocation(x, y+1); 
+                if (y + 1 <= this.ysize - 1) {
+                    guess = checkLocation(x, y + 1);
                 }
             }
-            if(d == 3){
+            if (d == 3) {
                 // west
-                if(x -1 >= 0){
-                    guess = checkLocation(x-1, y); 
+                if (x - 1 >= 0) {
+                    guess = checkLocation(x - 1, y);
                 }
             }
-            if(guess){
+            if (guess) {
                 break;
-                
+
             }
-            d ++;
+            d++;
         }
-        
-        if(!guess){
-            coords[0] = random.nextInt(10);
-            coords[1] = random.nextInt(10);
-            coords[2] = d;
-            return coords;
+
+        if (!guess) {
+            
+            return failedCoords();
         }
         this.prevDir = d;
-        if(this.prevDir > 3){
+        if (this.prevDir > 3) {
             this.prevDir = 0;
         }
         return coordsMaker(x, y, d);
     }
-    public int[] coordsMaker(int x, int y, int d){
+
+    /**
+     * Tekee kordinaatit int[] arraylle oikeaan muotoon suunnan mukaan
+     *
+     * @param int x, int y, int dir, edelliset xy kordinaatit ja suunta
+     *
+     * @return int[] lista seuraavista kordinaateista
+     */
+    public int[] coordsMaker(int x, int y, int d) {
         int coords[] = new int[3];
-        if(d == 0){
+        if (d == 0) {
             coords[0] = x;
-            coords[1] = y-1;
-                  
-        }
-        if(d == 1){
-            coords[0] = x +1;
-            coords[1] = y;
-            
-        }
-        if(d == 2){
-            coords[0] = x;
-            coords[1] = y +1;
-            
-        }
-        if(d == 3){
-            coords[0] = x-1; 
-            coords[1] = y;
-            
-        }
-        coords[2] = d;
-        return coords;
-                
-        
-    }
-    public int getPrevDir(){
-        return this.prevDir;
-    }
-    public int[] chooseAnotherDirectionForBot(int x, int y, int dir){
-        int coords[] = new int[3];  
-        
-        int d = newDir(dir -1);
-        boolean guess = false;
-        
-        if(d == 0){
-            // north
-            if(y - 1 >= 0){
-                guess = checkLocation(x, y-1); 
-            }
+            coords[1] = y - 1;
 
         }
-        if(d == 1){
+        if (d == 1) {
+            coords[0] = x + 1;
+            coords[1] = y;
+
+        }
+        if (d == 2) {
+            coords[0] = x;
+            coords[1] = y + 1;
+
+        }
+        if (d == 3) {
+            coords[0] = x - 1;
+            coords[1] = y;
+
+        }
+        return coords;
+
+    }
+
+    public int getPrevDir() {
+        return this.prevDir;
+    }
+
+    /**
+     * Valitsee tietokoneelle seuraavan ruudun, jos tietokone on käynyt yhden
+     * laivan yhden suunnan läpi
+     *
+     * @param int x, int y, int dir, alkuperäiset osumakordinaatit laivaan ja
+     * nykyinen suunta
+     *
+     * @return int[] lista seuraavista kordinaateista
+     */
+    public int[] chooseAnotherDirectionForBot(int x, int y, int dir) {
+        
+
+        
+        boolean guess = false;
+
+        if (newDir(dir - 1) == 0 && y - 1 >= 0) {
+            // north
+
+            guess = checkLocation(x, y - 1);
+
+        }
+        if (newDir(dir - 1) == 1 && x + 1 <= this.xsize - 1) {
             // east
-            if(x + 1 <= this.xsize -1){
-                guess = checkLocation(x+1, y); 
-            }
+
+            guess = checkLocation(x + 1, y);
+
         }
-        if(d == 2){
+        if (newDir(dir - 1) == 2 && y + 1 <= this.ysize - 1) {
             // south
-            if(y + 1 <= this.ysize -1){
-                guess = checkLocation(x, y+1); 
-            }
+
+            guess = checkLocation(x, y + 1);
+
         }
-        if(d == 3){
+        if (newDir(dir - 1) == 3 && x - 1 >= 0) {
             // west
-            if(x -1 >= 0){
-                guess = checkLocation(x-1, y); 
-            }
+
+            guess = checkLocation(x - 1, y);
+
         }
-            
-            
-        
-        
-        if(!guess){
-            coords[0] = random.nextInt(10);
-            coords[1] = random.nextInt(10);
-            coords[2] = d;
-            return coords;
+
+        if (!guess) {
+
+            return failedCoords();
         }
+        prevDirChecker(newDir(dir - 1));
+
+        return coordsMaker(x, y, newDir(dir - 1));
+
+    }
+    /**
+     * Luo uudet satunnaiset kordinaatit, jos niiden luonti ei onnistu kunnolla chooseAnotherDirectionForBot:ssa
+     *
+     * @param 
+     *
+     * @return int[] lista seuraavista kordinaateista
+     */
+
+    public int[] failedCoords() {
+        int coords[] = new int[3];
+        coords[0] = random.nextInt(10);
+        coords[1] = random.nextInt(10);
+        return coords;
+    }
+    
+    /**
+     * Tarkistaa, onko prevDir muuttuja kunnossa
+     *
+     * @param int d suunta, joka on uusi edellinen
+     *
+     * @return 
+     */
+    public void prevDirChecker(int d) {
         this.prevDir = d;
-        if(this.prevDir > 3){
+        if (this.prevDir > 3) {
             this.prevDir = 0;
         }
-        return coordsMaker(x, y, d);
-        
     }
-    public int newDir(int d){
-        if(d == 0){
+
+    /**
+     * Antaa parametrina saatuun suuntaan nähden vastakkaisen suunnan
+     *
+     * @param int d vanha suunta
+     *
+     * @return int uusi suunta
+     */
+    public int newDir(int d) {
+        if (d == 0) {
             return 2;
         }
-        if(d == 1){
+        if (d == 1) {
             return 3;
         }
-        if(d == 2){
+        if (d == 2) {
             return 0;
-        } else { 
+        } else {
             return 1;
         }
-        
+
     }
-    
-    
-    public boolean checkLocation(int x, int y){
-        if(!this.grid[x][y].getGuessed()){
+
+    /**
+     * Tarkistaa onko sijanti arvattu aikaisemmin
+     *
+     * @param int x, int y kordinaatit
+     *
+     * @return boolean tilanteen mukaan
+     */
+    public boolean checkLocation(int x, int y) {
+        if (!this.grid[x][y].getGuessed()) {
             return true;
         }
         return false;

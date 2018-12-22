@@ -20,7 +20,7 @@ import javafx.scene.layout.GridPane;
 
 /**
  *
- * 
+ *
  * Ohjelman pääluokka, suorittaa graafisten luokkien asettelun
  */
 public class Main extends Application {
@@ -30,14 +30,13 @@ public class Main extends Application {
         Button start = new Button("Aloita peli");
         BorderPane menuPane = new BorderPane();
         menuPane.setLeft(start);
-       
+
         DBStats db = new DBStats();
         db.createDB();
         Button statButton = new Button("Tilastot");
         menuPane.setRight(statButton);
         Scene menu = new Scene(menuPane);
-        
-        
+
         start.setOnAction((event) -> {
             Board board = new Board();
             Grid botGrid = new Grid(10, 10);
@@ -54,7 +53,7 @@ public class Main extends Application {
                         Stats stats = new Stats(game.getGrid(), game.getBotGrid());
                         BorderPane statsPane = stats.getStatsPane();
                         Button toMenu = new Button("Valikkoon");
-                        
+
                         statsPane = stats.getStatsPane();
                         db.addToDB(stats.checkGridsDB());
                         toMenu.setOnAction((eventQuit) -> {
@@ -77,17 +76,16 @@ public class Main extends Application {
 
             });
             b.setRight(cont);
-            //Onko kirjotustyyli oikee?
+
             Scene boardScene = new Scene(b);
             w.setScene(boardScene);
-            //Onko kirjotustyyli oikee?
 
         });
-        
+
         statButton.setOnAction((event) -> {
-            Grid g1 = new Grid(10,10);
-            Grid g2 = new Grid(10,10);
-            Stats dbStats = new Stats (g1,g2);
+            Grid g1 = new Grid(10, 10);
+            Grid g2 = new Grid(10, 10);
+            Stats dbStats = new Stats(g1, g2);
             GridPane dbPane = dbStats.getDbStatsPane(db.getDB());
             Button toMenu = new Button("Valikkoon");
             toMenu.setOnAction((eventQuit) -> {
@@ -96,10 +94,10 @@ public class Main extends Application {
 
             });
             dbPane.add(toMenu, 4, 0);
-            Scene statsScene = new Scene(dbPane);    
+            Scene statsScene = new Scene(dbPane);
             w.setScene(statsScene);
-            });
-        
+        });
+
         w.setScene(menu);
         w.setTitle("Laivanupotus");
         w.show();

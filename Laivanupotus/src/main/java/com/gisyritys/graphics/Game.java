@@ -36,15 +36,15 @@ public class Game {
         this.gameOn = true;
 
     }
-    
+
     /**
-    * Tuo pelaajalle pelattavan version tietokoneen pelilaudasta.
-    * Ruudut ovat klikattavissa ja näin tuhottavissa.
-    *
-    * @param   
-    * 
-    * @return Klikattavan BorderPane version tietokonepelaajan laudasta
-    */
+     * Tuo pelaajalle pelattavan version tietokoneen pelilaudasta. Ruudut ovat
+     * klikattavissa ja näin tuhottavissa.
+     *
+     * @param
+     *
+     * @return Klikattavan BorderPane version tietokonepelaajan laudasta
+     */
     public BorderPane getGame() {
         BorderPane screen = new BorderPane();
         Label type = new Label("Peli käynnissä");
@@ -71,10 +71,7 @@ public class Game {
                         int yloc = botPane.getRowIndex(button);
                         MouseButton mouse = event.getButton();
                         if (mouse == MouseButton.SECONDARY) {
-                            //    Ship ship = grid.getLocation(xloc, yloc).getShip();
-//                            type.setText("                                      Tyyppi: " + bot.getGrid()[xloc][yloc].getShip().getTyyppi());
-                            //  System.out.println(ship);
-                            System.out.println(xloc + ":=:" + yloc);
+
                         } else if (mouse == MouseButton.PRIMARY && gameOn) {
                             Boolean play = false;
                             if (bot.getGrid()[xloc][yloc].hasShip()) {
@@ -101,7 +98,6 @@ public class Game {
                                 grid = botGame.getGrid();
                                 screen.setLeft(pane);
                             }
-                            System.out.println(xloc + ":" + yloc);
 
                             bot.getGrid()[xloc][yloc].setGuessed();
 
@@ -113,7 +109,7 @@ public class Game {
                                 type.setText("Sinä voitit!");
                                 gameOn = bot.checkGrid();
                             }
-                            if (!grid.checkGrid() && !bot.checkGrid()){
+                            if (!grid.checkGrid() && !bot.checkGrid()) {
                                 type.setText("Tasapeli!");
                                 gameOn = grid.checkGrid();
                             }
@@ -129,8 +125,6 @@ public class Game {
             }
         }
 
-        System.out.println("------");
-        
         Label keski = new Label("|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |\n|    |");
 
         screen.setLeft(pane);
