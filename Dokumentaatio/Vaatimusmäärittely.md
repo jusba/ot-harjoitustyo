@@ -7,21 +7,20 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 ### Sovelluksen toiminnallisuudet
 
 ##### Päävalikko
-- Pelaaja voi avata päävalikosta uuden pelin 
+- Pelaaja voi avata päävalikosta uuden pelin tai siirtyä tarkastelemaan edellisten pelien tilastoja
 
 ##### Laivanasetusvalikko
-- Uuden pelin avatessa avautuu laivanasetusvalikko ja pelaaja saa asettaaa laivansa pelilaudalle sallittujen sääntöjen puitteissa.
-- Pelin säännöt tarkentuvat projektin edetessä, oletuksena ns. normaalin lautapeliversion säännöt
-- Kaikki laivat asetettua ohjelma siirtyy peliruutuun.
+- Uuden pelin avatessa avautuu laivanasetusvalikko ja pelaaja saa asettaaa laivansa pelilaudalle.
+- Oletuksena on, että pelaaja tottelee kiltisti normaalin lautapeliversion sääntöjä.
+- Kun pelaaja on asettanut mielestään tarpeeksi laivoja, siirtyy peli pelivalikkoon.
 
 ##### Pelivalikko
 - Peli etenee vuorotellen pelaajan ja tietokoneen valitessa ruutuja.
 - Kummankin vuorolla näkyy vastustajan aluetta kuvaava ruudukko
 - Pelaaja valitsee ruutuja, joissa vastustajan laivat mahdollisesti ovat.
 - Valittuaan ruudun ruudun kuvake muuttuu joko osumaa kuvaavaksi tai hutia kuvaavaksi.
-- Tietyn laivan kaikkien ruutujen tuhoutuessa sen kuvakkeet muuttuvat uudelleen uppoamista kuvaavaksi
-- Kun jomman kumman pelaajan kaikki laivaruudut on tuhottu, näkyy molempien pelaajien laivojen sijainnit ja tuhotut kohdat.
-- Sitten peli siirtyy tulosvalikkoon.
+- Kun jomman kumman pelaajan kaikki laivaruudut on tuhottu, peli loppuu ja voittajan nimi näkyy ikkunassa.
+- Tästä voi siirtyä lopulta tulosvalikkoon
 
 ##### Tulosvalikko
 - Valikossa näkyy käytettyjen vuorojen määrä, molempien pelaajien valittujen ruutujen ja osumien määrä.
@@ -42,6 +41,6 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 - Toimivuus ainakin Windows ja Linux koneissa (Projekti toteutetaan Windows pohjaisella käyttäjärjestelmällä, sekä mahdollisesti tilanteen sitä vaatiessa Virtualboxissa pyörivällä Ubuntulla.
 - Ohjelmointikieli Java
 - Ei verkkotoiminnallisuuksia
-- Mahdollinen tlastojen tallennus suoritetaan paikallisesti
+- Tilastojen tallennus tapahtuu paikallisesti
 
-##### Ohjelman tekijä varaa oikeuden muokata tätä dokumenttia projektin yksityiskohtien tarkentuessa.
+##### Ohjelman tekijä varaa oikeuden muokata tätä dokumenttia siitä etukäteen ilmoittamatta
