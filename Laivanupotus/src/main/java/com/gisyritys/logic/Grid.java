@@ -437,6 +437,68 @@ public class Grid {
     public int getPrevDir(){
         return this.prevDir;
     }
+    public int[] chooseAnotherDirectionForBot(int x, int y, int dir){
+        int coords[] = new int[3];  
+        
+        int d = newDir(dir -1);
+        boolean guess = false;
+        
+        if(d == 0){
+            // north
+            if(y - 1 >= 0){
+                guess = checkLocation(x, y-1); 
+            }
+
+        }
+        if(d == 1){
+            // east
+            if(x + 1 <= this.xsize -1){
+                guess = checkLocation(x+1, y); 
+            }
+        }
+        if(d == 2){
+            // south
+            if(y + 1 <= this.ysize -1){
+                guess = checkLocation(x, y+1); 
+            }
+        }
+        if(d == 3){
+            // west
+            if(x -1 >= 0){
+                guess = checkLocation(x-1, y); 
+            }
+        }
+            
+            
+        
+        
+        if(!guess){
+            coords[0] = random.nextInt(10);
+            coords[1] = random.nextInt(10);
+            coords[2] = d;
+            return coords;
+        }
+        this.prevDir = d;
+        if(this.prevDir > 3){
+            this.prevDir = 0;
+        }
+        return coordsMaker(x, y, d);
+        
+    }
+    public int newDir(int d){
+        if(d == 0){
+            return 2;
+        }
+        if(d == 1){
+            return 3;
+        }
+        if(d == 2){
+            return 0;
+        } else { 
+            return 1;
+        }
+        
+    }
     
     
     public boolean checkLocation(int x, int y){

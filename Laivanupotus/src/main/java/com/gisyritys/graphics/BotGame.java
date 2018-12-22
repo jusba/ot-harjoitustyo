@@ -34,6 +34,10 @@ public class BotGame {
     int dir;
     int startX;
     int startY;
+    int saveX;
+    int saveY;
+    
+    Boolean check;
            
     
 
@@ -47,6 +51,8 @@ public class BotGame {
         this.previous = new ArrayList<int[]>();
         this.count = 0;
         this.dir = 0;
+        this.check = false;
+        
         
         
     }
@@ -67,6 +73,11 @@ public class BotGame {
         int yCoord = chooseY();
         if(this.count > 0 && this.count < 5){
             cXY = this.grid.chooseXYForBot(this.previousX, this.previousY, this.dir);
+            if(cXY[0] != saveX && cXY[1] != saveY && this.check ){
+                cXY = this.grid.chooseAnotherDirectionForBot(saveX, saveY, this.dir);
+                this.check = false;
+                
+            }
             xCoord = cXY[0];
             yCoord = cXY[1];
         }
@@ -76,10 +87,7 @@ public class BotGame {
             this.dir = 0;
         }
         
-        int[] coords = new int[2];
-        coords[0] = xCoord;
-        coords[1] = yCoord;
-        this.previous.add(coords);
+        
         boolean match = true;
         while (true) {
             for (int x = 0; x <= this.grid.getGrid().length - 1; x++) {
@@ -121,10 +129,15 @@ public class BotGame {
                                 count = 0;
                                 this.dir = this.grid.getPrevDir();
                             }
+                            if(!this.hit){
+                                this.saveX = xCoord;
+                                this.saveY = yCoord;
+                            }
                             this.hit = true;
                             this.startX = xCoord;
                             this.startY = yCoord;
                             match = false;
+                            this.check = true;
                             
                             
 
