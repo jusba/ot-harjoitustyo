@@ -43,8 +43,16 @@ Gridin "ruuduissa" eli Arrayiden kohdissa on Location luokan objekteja. Nämä k
 Jokaisessa ruudussa myös joko on tai ei ole Ship luokan objektia, mikä kuvaa siinä olevaa laivaa.
 
 ## Toiminnallisuus
+#### Uuden laudan luonti
+Uusi pelilauta luodaan Board luokassa, mikä palauttaa BorderPane olion Mainille itse pelissä käytettäväksi.
 
 ![Sekvenssikaavio](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/Images/Board_valikon_toiminta.png)
+
+#### Pelin toiminnallisuus
+
+Pelin toiminta on toteutettu Game luokan sisällä, mikä hakee BotGame luokasta tietokoneen lautaa kuvaavan BorderPanen ja yhdistää sen omaansa. Tämä BorderPane taas palautetaan Main luokalle.
+
+![Pelin_toiminta](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/Images/pelin_toiminta.png?raw=true)
                     
 ## Ohjelman parannettavia kohteita  
 
