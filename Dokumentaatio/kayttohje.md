@@ -1,7 +1,7 @@
 # Käyttöohje
 
 ### Aloitus
-Lataa [Laivanupotus.jar](https://github.com/jusba/ot-harjoitustyo/releases/download/Viikko6/Laivanupotus.jar)
+Lataa [Laivanupotus.jar](https://github.com/jusba/ot-harjoitustyo/releases/download/Viikko6/Laivanupotus.jar)  
 Ohjelma luo tietokantatiedoston stats.db samaan kansioon itsensä kanssa ensimmäisen käynnistyksen yhteydessä.  
 
 Ohjelma käynnistyy komentoriviltä komennolla:  
