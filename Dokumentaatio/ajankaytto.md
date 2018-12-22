@@ -17,4 +17,4 @@
 |6.12.2018|1h|Ihmispelaajan laivojen laiton rajoitusta|
 |11.12.2018|8h|Tilastovalikko, tietokanta, javadocia, vaatimusten päivitystä, alustava käyttöohje, alustavaa arkkitehtuurikorjausta, yleistä siistimistä|
 |18.12.2018|5h|Pienensin randomGRidin pituutta, pari uutta metodia, javadoc, kevyen tekoälyn aloitusta|
-|22.12.2018|2,5h|Tekoäly toimii nyt tarvittavasti, ||
+|22.12.2018|2,5h|Tekoäly toimii nyt tarvittavasti,|
