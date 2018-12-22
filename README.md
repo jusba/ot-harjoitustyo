@@ -12,6 +12,7 @@ Tällä hetkellä sovelluksesta on toiminnassa hyvin alkeellinen laivanasetus, m
 - [Arkkitehtuurikuvaus](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
 - [Käyttöohje](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/kayttohje.md)
 - [Testausdokumentti](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/testaus.md)
+- [Ohjelman parannettavia kohteita](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md#ohjelman-parannettavia-kohteita)
 
 ### Releaset
 - [Viikko 6](https://github.com/jusba/ot-harjoitustyo/releases/tag/Viikko6)
