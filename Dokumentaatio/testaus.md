@@ -23,6 +23,8 @@ Suoritettu manuaalisesti
 
 Ohjelman uusinta versiota on haettu ja sitä on ajettu [käyttöohjeen](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/kayttohje.md) perusteella Windows-ympäristössä. Aikaisempia releaseja on ajettu myös Linux-ympäristössä, joten toimiminen siellä on myös oletettavaa. 
 
+#### Ohjelman toiminnallisuudet  
+
 Ohjelma toteuttaa kaikki [vaatimusmäärittelyssä](https://github.com/jusba/ot-harjoitustyo/blob/master/Dokumentaatio/Vaatimusm%C3%A4%C3%A4rittely.md) ilmoitetut toiminnallisuudet, paitsi mahdolliset lisäominaisuudet
 
 Ohjelman vaihtoehtoinen asennus tapahtuu kloonaamalla tämän repositorion sisältö hakemistoon ja ajamalla ohjelman Main luokkaa esimerkiksi ohjelmointiympäristön kautta.
