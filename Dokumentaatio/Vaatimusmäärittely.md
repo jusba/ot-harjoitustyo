@@ -34,8 +34,10 @@ Sovellus on kaikille varmaan varsin tuttu [laivanupotuspeli](https://fi.wikipedi
 - Tietokoneelle eri vaikeusasteita
 - Tilastovalikko johon pääsee päävalikosta, mikä näyttää aikaisempien pelien tilastoja (toteutettu)
 - Muutettava peliruudukon koko
-- Muutettava laivojen määrä
-- Muita sovelluksen kehityksen aikana tarkentuvia ominaisuuksia
+- Muutettava laivaruutujen määrä
+- Tietokonepelaajan laivojen sijaintien näkyminen pelin lopuksi
+- Laivojen kokonaan tuhoutumisen merkkaaminen jotenkin
+- Lisää tilastoja
 
 ### Toiminnallisuuteen liittyviä rajoitteita
 - Toimivuus ainakin Windows ja Linux koneissa (Projekti toteutetaan Windows pohjaisella käyttäjärjestelmällä, sekä mahdollisesti tilanteen sitä vaatiessa Virtualboxissa pyörivällä Ubuntulla.
